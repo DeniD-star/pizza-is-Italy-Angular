@@ -1,0 +1,30 @@
+.nav-language{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+.nav-language a{
+ text-decoration: none;
+ border: 1px solid goldenrod;
+ color: goldenrod;
+ padding: 10px;
+}
+.nav-language li{
+  padding-right: 15px;
+}
+
+.footer{
+  background-color: rgb(30, 28, 28);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  position: relative;
+  /* top: 100px; */
+
+;
+
+}
+.footer p{
+ color: goldenrod;
+ /* padding-bottom: 15px; */
+}

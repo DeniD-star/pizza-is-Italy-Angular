@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap');
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+@import url('https://fonts.googleapis.com/css2?family=Splash&display=swap');
+
+
+body{
+    font-family: 'Domine', serif;
+}
+
+/* header navigation */
+.title{
+    text-align: center;
+    font-family: 'Splash', cursive;
+    font-size: 50px;
+    color: goldenrod;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.title .italy{
+    background-image: url('../../../assets/images/last.png');
+    /* background-repeat: no-repeat;
+    object-fit: cover; */
+    color:rgb(30, 28, 28);
+    bottom: 10px;
+    left: 20px;
+
+}
+
+header{
+    padding: 20px 40px;
+    /* background-color: rgb(95, 75, 31); */
+    background-color: rgb(30, 28, 28);
+    display: flex;
+    justify-content: space-between;
+    height: 100%
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.nav-link{
+    text-decoration: none;
+    cursor: pointer;
+    color: goldenrod;
+    font-size: 16px;
+}
+
+.user-navigation{
+    display: flex;
+    align-items: center;
+
+}
+
+.list-item{
+    padding-right: 30px;
+    color:rgb(230, 96, 96);
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+i{
+    padding-right: 5px;
+}
+
+img{
+    width: 80px;
+    padding-right: 15px;
+}
+
+.welcome{
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* main part  */
+
+/* .main-img-bg{
+    width: 100vw;
+    height: 100vh;
+} */
+
+
+.title-link{
+    cursor: pointer;
+    text-decoration: none;
+}

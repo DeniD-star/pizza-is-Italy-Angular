@@ -1,0 +1,50 @@
+.presentation{
+  background-color: rgb(230, 96, 96);
+  position: relative;
+  top: -40px;
+  padding: 20px;
+}
+
+.presentation .title-info-about{
+  text-align: center;
+}
+.presentation .about-us{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+
+  font-size: 18px;
+}
+
+
+
+.ifo-about-us{
+  width: 30%;
+  padding-right: 70px;
+}
+
+.title-info-about span{
+  color:goldenrod;
+  position: relative;
+  top: 0px;
+  left: 5px;
+  font-size: 30px;
+}
+
+.pizza-n-f{
+  float:left;
+  width: 300px;
+}
+.pizza-n-m{
+  float:right;
+  width: 300px;
+}
+.about-us{
+  width: 90%;
+}
+
+.about-francesco-description{
+padding-right: 20px;
+}
