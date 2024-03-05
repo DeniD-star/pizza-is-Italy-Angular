@@ -6,18 +6,21 @@ import { HeaderComponent } from './header/header.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactsComponent } from './contacts/contacts.component';
 
-
-
 @NgModule({
   declarations: [
     HomeComponent,
-
+    ContactsComponent,
     HeaderComponent,
     AboutUsComponent,
-    
+    FooterComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
+  exports: [
+    HomeComponent,
+    ContactsComponent,
+    FooterComponent,
+    HeaderComponent,
+    AboutUsComponent,
+  ],
 })
-export class CoreModule { }
+export class CoreModule {}

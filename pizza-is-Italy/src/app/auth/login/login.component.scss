@@ -1,0 +1,74 @@
+/* LOGIN */
+
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+
+#login{
+    text-align: center;
+    position: relative;
+
+    left: 30%;
+  transform: translate(0, 10%);
+    border: 3px solid gray;
+    border-radius: 25%;
+    padding : 20px 50px;
+    width: 30%;
+    height: 45%;
+    font-family: 'Courier New', Courier, monospace;
+    background-color:bisque;
+}
+
+#view-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-links{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login-links a{
+    margin-bottom: 10px;
+    color: rgb(101, 76, 76);
+    cursor: pointer;
+    text-decoration: none;
+
+
+}
+#email, #password{
+    border-color:  gray;
+    border-radius: 8px;
+    padding: 10px ;
+    width: 250px;
+    margin-bottom: 20px;
+}
+.login-btn{
+
+    border-radius: 8px;
+    border-color: gray;
+    padding: 10px 40px;
+    margin-bottom: 20px;
+    /* background-color: burlywood; */
+    background-color: rgb(230, 96, 96);
+    color: rgb(53, 51, 51);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.fa-solid.fa-user, .fa-solid.fa-lock{
+    padding-right: 5px;
+    color:rgb(230, 96, 96);
+}
+
+.login-form h2{
+    color: gray;
+}
+
+.create-account, .link-forgotten{
+    font-weight: bold;
+    color: blue;
+}

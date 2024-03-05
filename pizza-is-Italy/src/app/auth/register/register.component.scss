@@ -1,0 +1,80 @@
+
+/* REGISTER */
+
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+
+#register{
+    text-align: center;
+    position: relative;
+
+    left: 35%;
+  transform: translate(0, 30%);
+    border: 3px solid gray;
+    border-radius: 25px;
+    padding : 10px 50px;
+    width: 25%;
+    height: 60%;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: bisque;
+}
+
+#view-register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.register-links{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.register-links a{
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: rgb(101, 76, 76);
+    cursor: pointer;
+
+}
+#username, #password, #email, #rePass
+{
+    border-color:  gray;
+    border-radius: 100px;
+    padding: 10px ;
+    width: 260px;
+    margin-bottom: 10px;
+}
+.register-btn{
+
+    border-radius: 8px;
+    border-color: gray;
+    padding: 10px 40px;
+    margin-bottom: 30px;
+    /* background-color: burlywood; */
+    background-color: rgb(230, 96, 96);
+    color: rgb(53, 51, 51);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
+.register-form .fa-solid.fa-user, .register-form .fa-solid.fa-lock,
+.register-form .fa-solid.fa-envelope, .register-form .fa-solid.fa-repeat{
+    padding-right: 5px;
+    color:rgb(230, 96, 96);
+}
+
+.register-form h2{
+    color: gray;
+}
+
+.register-links{
+    font-weight: bold;
+}
+
+.form{
+  display: inline-grid;
+  padding-bottom: 10%;
+}
