@@ -1,0 +1,245 @@
+.details-page-section{
+  height: 200vh;
+}
+
+.details-page {
+    width: 700px;
+    border: 3px solid gray;
+    padding: 15px;
+    height: 570px;
+    position: relative;
+    top:15px;
+    left: 25%;
+    border-radius: 24px;
+    font-size: 20px;
+    font-family: "Courier New", Courier, monospace;
+    background-color: bisque;
+    color: rgb(230, 96, 96);
+  }
+  .details-img {
+    width: 280px;
+    border-radius: 25%;
+  }
+  .details-price-order {
+    margin: 0px;
+  }
+   .details-quantity-header {
+    margin: 0px;
+
+
+  }
+  .details-quantity article {
+    margin: 0px;
+  }
+  .details-quantity article h2 {
+    margin: 0px;
+
+  }
+
+  .details-page-article-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .details-ingredients {
+    display: flex;
+    justify-content: space-between;
+  }
+  .details-page article h2{
+    font-size: 22px;
+    margin-right: 15px;
+  }
+
+
+  .details-quantity article {
+    display: flex;
+    justify-content: space-between;
+  }
+  .details-notes {
+    display: flex;
+    justify-content: space-between;
+  }
+  .details-order {
+    display: flex;
+    justify-content: space-between;
+  }
+  .details-btns-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top:-20px;
+    margin-bottom: 0px;
+  }
+  .details-btns-admin p{
+    font-weight: bold;
+  }
+  .details-btn-edit, .details-btn-delete {
+    width: 130px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: rgb(230, 96, 96);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .details-btns-admin .details-btn-edit {
+    margin-right: 20px;
+
+  }
+
+
+  section article {
+    margin-bottom: 25px;
+  }
+
+  .ingredients-description, .details-quantity-header article h2,
+  .notes-description{
+      color:black;
+  }
+
+  .details-btn-order{
+      border-radius: 5px;
+      background-color: gray;
+      color: white;
+      font-size: 20px;
+      border-color: transparent;
+      cursor: pointer;
+  }
+
+  .decrease, .increase{
+      width:40px;
+      border-radius:8px;
+      background-color: gray;
+      border-color: transparent;
+      color: white;
+      font-size: 32px;
+      cursor: pointer;
+      height: 35px;
+  }
+
+  .quantity-heading{
+    padding: 5px;
+  }
+
+  .info-quantity{
+    width: 400px;
+  }
+
+  .details-quantity {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+    height: 35px;
+    align-items: center;
+  }
+  .details-pizza-name {
+   font-size: 35px;
+  }
+
+  .ingredients-description,
+  .notes-description{
+
+    font-weight: bold;
+  }
+
+  .likes-count{
+    font-weight: bold;
+    margin: 0px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 12px;
+  }
+  /* comments */
+
+  .comments{
+    background-color: gray;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px auto;
+
+  }
+
+  .heading-comments{
+    color:  rgb(230, 96, 96);
+    font-size: 32px;
+  }
+
+  .comment-item{
+    color: white;
+  }
+
+  .list-comments{
+    list-style: none;
+  }
+
+  .comments-add-mew{
+    background-color: gray;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  .comments-add-mew textarea{
+    width: 500px;
+    height: 100px;
+  }
+  .comments-add-mew .btn-add-comment{
+   padding: 10px 30px;
+   border-radius: 8px;
+   font-size: 28px;
+   cursor: pointer;
+   border-color: transparent;
+   background-color: rgb(230, 96, 96);
+   color: white;
+   text-decoration: none;
+   text-align: center;
+
+  }
+
+  .about-comments{
+    margin: 100px 400px;
+  }
+
+  .comment-item{
+    background-color: white;
+   color: black;
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    /* display: flex;
+    justify-content: space-between; */
+  }
+  /* .comment-item h3, .comment-item p{
+    background-color: white;
+   color: black;
+    padding: 5px;
+    border-radius: 8px;
+
+  } */
+
+  .comment-item h3{
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 2px;
+  }
+  .comment-item p{
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .fa-check{
+    margin-left: 5px;
+    color:rgb(230, 96, 96);
+  }
+
+  .pizzaP{
+    font-weight: bold;
+    color: red;
+    margin-left: 10px;
+  }
+ 

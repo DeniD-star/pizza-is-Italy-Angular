@@ -1,0 +1,58 @@
+.client-section{
+
+  background-color: bisque;
+  height: 250vh;
+}
+
+.client-section-heading{
+  text-align: center;
+  font-size: 50px;
+  color: rgb(168, 60, 80);
+}
+.client-section-subtitle{
+  text-align: center;
+  margin:0px;
+  font-size: 22px;
+  color: rgb(59, 38, 31);
+  margin-bottom: 5px;
+}
+.client-section-subtitle.strong{
+
+  color: rgb(59, 38, 31);
+
+}
+
+.clients-pizzas-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+
+.add-btn-container{
+  position: relative;
+
+}
+
+.btn-add{
+  position: absolute;
+  right: 0px;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 28px;
+  cursor: pointer;
+  border-color:transparent;
+  background-color: rgb(230, 96, 96);
+  color: white;
+  padding: 10px 20px;
+
+}
+
+
+.no-pizzas{
+  margin: auto 450px;
+  font-size: 90px;
+  color:rgb(230, 96, 96);
+}

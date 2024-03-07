@@ -1,0 +1,76 @@
+.container{
+  border: 3px solid gray;
+  width: 555px;
+  height: 600px;
+  position: relative;
+  left: 30%;
+  top: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  padding: 15px;
+  font-size: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: bisque;
+  color: rgb(230, 96, 96);
+
+}
+
+input, textarea{
+    margin-bottom: 15px;
+    border-radius: 10px;
+
+}
+
+#price{
+    width: 70px;
+    position: relative;
+    left: 40%;
+    padding: 10px;
+}
+span{
+   position: relative;
+   bottom: 47px;
+   left: 47px;
+   font-size: 28px;
+}
+
+.btn {
+    width: 200px;
+    padding: 12px 20px;
+    position: relative;
+    left: 30%;
+    text-align: center;
+    border-radius: 8px;
+    font-size: 28px;
+    cursor: pointer;
+    border-color:transparent;
+    background-color: rgb(230, 96, 96);
+    color: white;
+}
+
+fieldset{
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+#title-pizza,
+#imageUrl{
+    width: 400px;
+    position: relative;
+    left: 10%;
+    padding: 10px;
+}
+
+label{
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+#title-pizza, #imageUrl,
+#ingredients, #notes, #price{
+    border-color: gray;
+}
