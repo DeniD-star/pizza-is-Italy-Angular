@@ -8,11 +8,12 @@ import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { MainModule } from './main/main.module';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
   declarations: [AppComponent, ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule, AuthModule, MainModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule, AuthModule, MainModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
