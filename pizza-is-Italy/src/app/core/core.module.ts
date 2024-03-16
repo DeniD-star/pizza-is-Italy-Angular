@@ -5,6 +5,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -13,14 +15,16 @@ import { ContactsComponent } from './contacts/contacts.component';
     HeaderComponent,
     AboutUsComponent,
     FooterComponent,
+    PageNotFoundComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     HomeComponent,
     ContactsComponent,
     FooterComponent,
     HeaderComponent,
     AboutUsComponent,
+    PageNotFoundComponent
   ],
 })
 export class CoreModule {}

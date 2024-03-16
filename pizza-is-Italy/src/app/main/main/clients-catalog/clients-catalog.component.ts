@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
+import { UserService } from 'src/app/auth/user.service';
 import { Pizza } from 'src/app/types/pizza';
 
 @Component({
@@ -11,8 +12,12 @@ export class ClientsCatalogComponent implements OnInit{
 clientsPizzas: Pizza[] = [];
 thereAreNoPizzas: boolean = false;
 
-  constructor(private apiService: ApiService){
+  constructor(private apiService: ApiService, private userService: UserService){
 
+  }
+
+  get isLogged(): boolean{
+    return this.userService.isLogged;
   }
 
   ngOnInit(): void {

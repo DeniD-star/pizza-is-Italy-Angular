@@ -12,7 +12,7 @@
         id="email"
         name="email"
         placeholder="Enter your Email"
-
+        #inputEmail
 
       />
       <label htmlFor="password">
@@ -23,9 +23,9 @@
         id="password"
         name="password"
         placeholder="Enter your Password"
-
+        #inputPassword
       />
-      <button type="submit" class="login-btn">
+      <button (click)="login(inputEmail.value, inputPassword.value)" type="submit" class="login-btn">
         LOGIN
       </button>
 

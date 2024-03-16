@@ -5,5 +5,6 @@ export interface Pizza{
   "ingredients": string,
   "notes": string,
   "price":string,
-  "canBeEdit": boolean
+  "canBeEdit": boolean,
+  "_id": string
 }

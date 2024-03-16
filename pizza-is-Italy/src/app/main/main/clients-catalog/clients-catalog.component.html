@@ -4,9 +4,9 @@
       Pizzas created by our clients
     </h1>
     <p class="client-section-subtitle">
-      We are so exited href realize that this is not just a dream. Is honer
-      for us href make you , our clients, part of our passion. Now, you'll not
-      just order a pizza, but you'll be able href create it
+      We are so exited to realize that this is not just a dream. Is honer
+      for us to make you , our clients, part of our passion. Now, you'll not
+      just order a pizza, but you'll be able to create it
       <strong> by your self</strong>.
     </p>
     <p class="client-section-subtitle">
@@ -20,17 +20,17 @@
   <ul *ngFor="let pizza of clientsPizzas" class="my-pizzas-list">
 
       <li >
-        <article className="pizze-tradizionali margherita">
-          <article className="img">
+        <article class="pizze-tradizionali margherita">
+          <article class="img">
             <img
               src={{pizza.imageUrl}}
               alt="img-margherita"
             />
           </article>
-          <article className="info">
-              <h5 className="price">{{pizza.price}}$</h5>
-            <h3 className="pizza-name">{{pizza.name}}</h3>
-            <p className="description">{{pizza.ingredients}}</p>
+          <article class="info">
+              <h5 class="price">{{pizza.price}}$</h5>
+            <h3 class="pizza-name">{{pizza.name}}</h3>
+            <p class="description">{{pizza.ingredients}}</p>
             <a href="{`/details/${pizza._id}`}">Details</a>
           </article>
         </article>
@@ -40,7 +40,7 @@
 <p *ngIf="thereAreNoPizzas" class="no-pizzas">No pizzas yet!</p>
   <!-- {user.email && ( -->
     <div class="add-btn-container">
-      <a href="/catalog/createYourPizza" class="btn-add">
+      <a routerLink="/create" class="btn-add" *ngIf="isLogged">
         + Add Your Pizza
       </a>
     </div>

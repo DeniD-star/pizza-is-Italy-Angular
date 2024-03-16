@@ -1,0 +1,39 @@
+.profile-heading{
+  text-align: center;
+  font-size: 40px;
+}
+
+.profile{
+  background-color: bisque;
+  width: 100vw;
+
+}
+
+
+.my-pizzas-profile{
+  height: 100vh;
+}
+.my-article-pizzas{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+
+.my-pizza-item{
+  width: 30%;
+}
+
+.my-pizzas-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.no-pizzas-my{
+  margin: 70px 400px;
+  font-size: 75px;
+  color:rgb(230, 96, 96);
+  text-align: center;
+}
