@@ -11,6 +11,7 @@ import { AuthActivate } from '../core/guards/auth.activate';
 import { MainComponent } from './main/main.component';
 import { CardPizzaComponent } from '../pizza/card-pizza/card-pizza.component';
 import { PageNotFoundComponent } from '../core/page-not-found/page-not-found.component';
+import { DetailsComponent } from './main/details/details.component';
 
 const routes: Routes = [
   {
@@ -55,6 +56,7 @@ const routes: Routes = [
     path: 'clientsPizzas',
     component: ClientsCatalogComponent,
   },
+
   {
     path: 'page-not-found',
     component: PageNotFoundComponent

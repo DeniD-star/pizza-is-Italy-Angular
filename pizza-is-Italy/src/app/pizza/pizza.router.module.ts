@@ -7,6 +7,7 @@ import { ClientsCatalogComponent } from '../main/main/clients-catalog/clients-ca
 import { MainComponent } from '../main/main/main.component';
 import { WhitePizzasComponent } from './white-pizzas/white-pizzas.component';
 import { CardPizzaComponent } from './card-pizza/card-pizza.component';
+import { DetailsComponent } from '../main/main/details/details.component';
 
 const routes: Routes = [
   {
@@ -51,7 +52,11 @@ const routes: Routes = [
     path: 'clientsPizzas',
    component: ClientsCatalogComponent,
   },
-  
+  {
+    path: '/details/:pizzaId',
+   component: DetailsComponent,
+  },
+
 ];
 
 @NgModule({

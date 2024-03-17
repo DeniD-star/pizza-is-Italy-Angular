@@ -6,6 +6,8 @@ import { UserComponent } from './user/user.component';
 import { UserRoutingModule } from './user.routing.module';
 import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 import { UserPizzasComponent } from './user/user-pizzas/user-pizzas.component';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,7 @@ import { UserPizzasComponent } from './user/user-pizzas/user-pizzas.component';
     UserOrdersComponent,
     UserPizzasComponent,
   ],
-  imports: [CommonModule, UserRoutingModule],
+  imports: [CommonModule, UserRoutingModule, FormsModule, SharedModule],
   exports: [
     LoginComponent,
     RegisterComponent,

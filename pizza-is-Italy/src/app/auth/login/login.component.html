@@ -1,7 +1,7 @@
 <section id="login">
   <article class="login-form">
     <h2>Login:</h2>
-    <form id="view-login" #form="">
+    <form id="view-login" #form="ngForm" (ngSubmit)="login(form)">
       <label htmlFor="email">
 
         <i class="fa-solid fa-user"></i>Email:
@@ -12,9 +12,19 @@
         id="email"
         name="email"
         placeholder="Enter your Email"
-        #inputEmail
-
+        #inputEmail="ngModel"
+        ngModel
+        required
+        [appEmail]="appEmailDomains"
       />
+
+      <ng-container *ngIf="inputEmail.touched">
+        <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
+        <p class="error" *ngIf="inputEmail.errors?.['appEmailValidator']">Email is not valid!</p>
+      </ng-container>
+
+      <!-- {{form?.errors | json}} -->
+
       <label htmlFor="password">
         <i class="fa-solid fa-lock"></i>Password:
       </label>
@@ -23,21 +33,31 @@
         id="password"
         name="password"
         placeholder="Enter your Password"
-        #inputPassword
+        #inputPassword="ngModel"
+        ngModel
+        required
+        minlength="5"
       />
-      <button (click)="login(inputEmail.value, inputPassword.value)" type="submit" class="login-btn">
+
+      <ng-container *ngIf="inputPassword.touched">
+        <p class="error" *ngIf="inputPassword.errors?.['required']">Password is required!</p>
+        <p class="error" *ngIf="inputPassword.errors?.['minlength']">Password must be at least {{inputPassword.errors?.['minlength']['requiredLength']}} characters!</p>
+      </ng-container>
+
+      <button type="submit" class="login-btn" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : ''}">
         LOGIN
       </button>
 
     </form>
     <article class="login-links">
-      <a href="##" class="link-forgotten">
+      <a routerLink="##" class="link-forgotten">
         Forgotten username/password
       </a>
-      <a href="/register" class="create-account">
+      <a routerLink="/register" class="create-account">
         Create new account
       </a>
     </article>
   </article>
+  {{form.value | json}}
 </section>
 
