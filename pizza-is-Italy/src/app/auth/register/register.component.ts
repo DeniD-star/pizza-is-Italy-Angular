@@ -23,13 +23,14 @@ export class RegisterComponent {
     }),
   });
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
   register(): void {
     //ToDo For now we are not handling the data
     console.log(this.form.value);
     if(this.form.invalid){
       return;
     }
-
+    this.userService.login();
+    this.router.navigate(['/']);
   }
 }
