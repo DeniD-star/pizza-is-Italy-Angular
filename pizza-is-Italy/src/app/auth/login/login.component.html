@@ -44,7 +44,7 @@
         <p class="error" *ngIf="inputPassword.errors?.['minlength']">Password must be at least {{inputPassword.errors?.['minlength']['requiredLength']}} characters!</p>
       </ng-container>
 
-      <button type="submit" class="login-btn" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : ''}">
+      <button type="submit" class="login-btn" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? '' : 'yellow'}">
         LOGIN
       </button>
 
@@ -58,6 +58,6 @@
       </a>
     </article>
   </article>
-  {{form.value | json}}
+ 
 </section>
 

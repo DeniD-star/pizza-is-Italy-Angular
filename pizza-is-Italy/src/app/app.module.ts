@@ -16,7 +16,7 @@ import { PizzaRoutingModule } from './pizza/pizza.router.module';
 
 @NgModule({
   declarations: [AppComponent,  ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule, AuthModule, MainModule, SharedModule, UserRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule,AuthModule, MainModule, SharedModule, UserRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

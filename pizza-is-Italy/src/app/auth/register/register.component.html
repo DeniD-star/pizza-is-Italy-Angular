@@ -1,42 +1,103 @@
 <section id="register">
   <article class="register-form">
     <h2>Create your account:</h2>
-    <form id="view-register">
-      <label htmlFor="email">
-        <i className="fa-solid fa-envelope"></i>Email:
-      </label>
-      <input type="text" id="email" name="email" placeholder="Email" />
-      <label htmlFor="username">
-        <i class="fa-solid fa-user"></i>Username:
-      </label>
+    <form id="view-register" [formGroup]="form" (ngSubmit)="register()">
+      <label html="email"> <i class="fa-solid fa-envelope"></i>Email: </label>
+      <input
+        type="text"
+        id="email"
+        name="email"
+        placeholder="Email"
+        formControlName="email"
+      />
+
+      <ng-container *ngIf="form.get('email')?.touched">
+        <p class="error" *ngIf="form.get('email')?.errors?.['required']">
+          Email is required!
+        </p>
+        <p
+          class="error"
+          *ngIf="form.get('email')?.errors?.['appEmailValidator']"
+        >
+          Email is not valid!
+        </p>
+      </ng-container>
+
+      <label html="username"> <i class="fa-solid fa-user"></i>Username: </label>
       <input
         type="text"
         id="username"
         name="username"
         placeholder="Enter your Username"
+        formControlName="username"
       />
-      <label htmlFor="password">
-        <i class="fa-solid fa-lock"></i>Password:
-      </label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Password"
-      />
-      <label htmlFor="rePassword">
-        <i class="fa-solid fa-repeat"></i>Repeat Password:
-      </label>
-      <input
-        type="password"
-        id="rePass"
-        name="rePass"
-        placeholder="Repeat Password"
-      />
-      <button type="submit" class="register-btn">Register</button>
+      <ng-container *ngIf="form.get('username')?.touched">
+        <p class="error" *ngIf="form.get('username')?.errors?.['required']">
+          Username is required!
+        </p>
+        <p class="error" *ngIf="form.get('username')?.errors?.['minlength']">
+          Username should not be less than 5 characters long!
+        </p>
+      </ng-container>
+
+      <ng-container formGroupName="passGroup">
+        <!-- password -->
+        <label html="password">
+          <i class="fa-solid fa-lock"></i>Password:
+        </label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <ng-container *ngIf="form.get('passGroup')?.get('password')?.touched">
+          <p
+            class="error"
+            *ngIf="form.get('passGroup')?.get('password')?.errors?.['required']"
+          >
+            Password is required!
+          </p>
+          <p
+            class="error"
+            *ngIf="form.get('passGroup')?.get('password')?.errors?.['minlength']"
+          >
+            Password should not be less than
+            {{
+            form.get('passGroup')?.get('password')?.errors?.['minlength']?.['requiredLength']
+            }}
+            characters long!
+          </p>
+        </ng-container>
+
+        <!-- repeatPassword -->
+        <label html="rePassword">
+          <i class="fa-solid fa-repeat"></i>Repeat Password:
+        </label>
+        <input
+          type="password"
+          id="rePass"
+          name="rePass"
+          placeholder="Repeat Password"
+          formControlName="rePassword"
+        />
+        <ng-container *ngIf="form.get('passGroup')?.get('rePassword')?.touched">
+          <p
+            class="error"
+            *ngIf="
+            form.get('passGroup')?.errors?.['matchPasswordsValidator'] ||
+            form.get('passGroup')?.get('rePassword')?.errors?.['required']"
+          >
+            Passwords don`t match!
+          </p>
+        </ng-container>
+      </ng-container>
+
+      <button type="submit" class="register-btn" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : ''}">Register</button>
 
       <article class="register-links">
-        <a href="/login">Already have an account?</a>
+        <a routerLink="/login">Already have an account?</a>
       </article>
     </form>
   </article>
