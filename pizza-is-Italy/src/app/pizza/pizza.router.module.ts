@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TraditionalPizzasComponent } from './traditional-pizzas/traditional-pizzas.component';
-import { CreateComponent } from '../main/main/create/create.component';
+import { CreateComponent } from './create/create.component';
 import { AuthActivate } from '../core/guards/auth.activate';
-import { ClientsCatalogComponent } from '../main/main/clients-catalog/clients-catalog.component';
+import { ClientsCatalogComponent } from './clients-catalog/clients-catalog.component';
 import { MainComponent } from '../main/main/main.component';
 import { WhitePizzasComponent } from './white-pizzas/white-pizzas.component';
 import { CardPizzaComponent } from './card-pizza/card-pizza.component';
@@ -29,14 +29,14 @@ const routes: Routes = [
         path: 'white',
         component: WhitePizzasComponent,
       },
-      {
-        path: 'drinks',
-        // component: DrinksComponent,
-      },
-      {
-        path: 'desserts',
-        // component: DessertsComponent,
-      },
+      // {
+      //   path: 'drinks',
+      //   // component: DrinksComponent,
+      // },
+      // {
+      //   path: 'desserts',
+      //   // component: DessertsComponent,
+      // },
       {
         path: 'create',
         component: CreateComponent,
@@ -53,9 +53,20 @@ const routes: Routes = [
    component: ClientsCatalogComponent,
   },
   {
-    path: '/details/:pizzaId',
-   component: DetailsComponent,
+    path: 'create',
+    component: CreateComponent,
+    canActivate: [AuthActivate ]
   },
+  {
+    path: 'white',
+    component: WhitePizzasComponent,
+   
+  },
+
+  // {
+  //   path: '/details/:pizzaId',
+  //  component: DetailsComponent,
+  // },
 
 ];
 

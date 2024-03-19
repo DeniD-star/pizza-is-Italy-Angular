@@ -1,5 +1,5 @@
 <section id="create-pizza" class="auth">
-  <form id="create">
+  <form id="create" #form="ngForm" (ngSubmit)="newPizzaSubmitHandler(form)">
     <div class="container">
       <h1>Create Your Pizza</h1>
       <label for="title-pizza">Pizza name:</label>
@@ -9,7 +9,17 @@
         name="name"
         placeholder="Enter pizza name..."
         value=""
+        ngModel
+        #inputName="ngModel"
+        required
+        minlength="3"
       />
+
+      <ng-container *ngIf="inputName.touched">
+        <p class="error" *ngIf="inputName.errors?.['required']">Name is required!</p>
+        <p class="error" *ngIf="inputName.errors?.['minlength']">Name has to be at least 3 characters long!</p>
+      </ng-container>
+
 
       <label for="pizza-img">Image:</label>
       <input
@@ -18,13 +28,14 @@
         name="imageUrl"
         placeholder="Upload a photo..."
         value=""
+        ngModel
       />
       <label for="ingredients">Your Ingredients</label>
-      <textarea name="ingredients" value="" id="ingredients" type="text" placeholder="Enter your ingredients..."></textarea>
+      <textarea ngModel name="ingredients" value="" id="ingredients" type="text" placeholder="Enter your ingredients..."></textarea>
 
 
       <label for="notes">Notes:</label>
-      <textarea name="notes" id="notes" value=""></textarea>
+      <textarea name="notes" id="notes" value="" ngModel></textarea>
 
       <label for="price">Price:</label>
       <input
@@ -35,6 +46,7 @@
         max="{30}"
         placeholder="{4}"
         value=""
+        ngModel
       />
       <span>$</span>
 

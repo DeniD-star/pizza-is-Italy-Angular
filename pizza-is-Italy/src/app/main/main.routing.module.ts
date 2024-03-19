@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CatalogComponent } from './main/catalog/catalog.component';
-import { ClientsCatalogComponent } from './main/clients-catalog/clients-catalog.component';
+import { ClientsCatalogComponent } from '../pizza/clients-catalog/clients-catalog.component';
 import { TraditionalPizzasComponent } from '../pizza/traditional-pizzas/traditional-pizzas.component';
 import { WhitePizzasComponent } from '../pizza/white-pizzas/white-pizzas.component';
 // import { DessertsComponent } from './main/desserts/desserts.component';
 // import { DrinksComponent } from './main/drinks/drinks.component';
-import { CreateComponent } from './main/create/create.component';
+import { CreateComponent } from '../pizza/create/create.component';
 import { AuthActivate } from '../core/guards/auth.activate';
 import { MainComponent } from './main/main.component';
 import { CardPizzaComponent } from '../pizza/card-pizza/card-pizza.component';
@@ -41,11 +41,11 @@ const routes: Routes = [
       //   path: 'desserts',
       //   component: DessertsComponent,
       // },
-      {
-        path: 'create',
-        component: CreateComponent,
-        canActivate: [AuthActivate ]
-      },
+      // {
+      //   path: 'create',
+      //   component: CreateComponent,
+      //   canActivate: [AuthActivate ]
+      // },
       {
         path: ':pizzaId',
         component: CardPizzaComponent
