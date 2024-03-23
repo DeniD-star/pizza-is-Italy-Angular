@@ -1,59 +1,59 @@
-<!-- <section className="details-page-section">
-  <article className="details-page">
-    <article className="details-page-article-header">
-      <img src={pizza.imageUrl} alt="img" className="details-img" />
-      <article className="info-quantity">
-        <h1 className="details-pizza-name">{pizza.name}</h1>
-        <article className="details-quantity">
-          <h2 className="details-quantity-header">QUANTITY</h2>
+ <section class="details-page-section">
+  <article class="details-page" >
+    <article class="details-page-article-header">
+      <img src={{pizza?.imageUrl}} alt="img" class="details-img" />
+      <article class="info-quantity">
+        <h1 class="details-pizza-name">{{pizza?.name}}</h1>
+        <article class="details-quantity">
+          <h2 class="details-quantity-header">QUANTITY</h2>
           <article>
-            <button className="decrease" onClick={decreaseQuantity}>
+            <button class="decrease" onClick={decreaseQuantity}>
               -
             </button>
-            <h2 className="quantity-heading">{quantity}</h2>
-            <button className="increase" onClick={increaseQuantity}>
+            <h2 class="quantity-heading">{{pizza}}</h2>
+            <button class="increase" onClick={increaseQuantity}>
               +
             </button>
           </article>
         </article>
       </article>
     </article>
-    <article className="other-info">
-      <article className="details-ingredients">
-        <h2 className="ingredients-h2">INGREDIENTS</h2>
-        <p className="ingredients-description">{pizza.ingredients}</p>
+    <article class="other-info">
+      <article class="details-ingredients">
+        <h2 class="ingredients-h2">INGREDIENTS</h2>
+        <p class="ingredients-description">{{pizza?.ingredients}}</p>
       </article>
 
-      <article className="details-notes">
-        <h2 className="notes-h2">NOTES</h2>
-        <p className="notes-description">{pizza.notes}</p>
+      <article class="details-notes">
+        <h2 class="notes-h2">NOTES</h2>
+        <p class="notes-description">{{pizza?.notes}}</p>
       </article>
     </article>
-    <article className="details-order">
-      <h2 className="details-price-order">{pizzaPrice.toFixed(2)}$</h2>
-      <button className="details-btn-order" onClick={addToTheCartHandler}>
+    <article class="details-order">
+      <h2 class="details-price-order">{{pizza?.price}}</h2>
+      <button class="details-btn-order" (click)="addToTheCartHandler()">
         ADD TO THE ORDER
       </button>
-      {isAdded && <p className="pizzaP">{pizza.name} added to the cart!</p>}
+      <!-- {isAdded && <p class="pizzaP">{pizza.name} added to the cart!</p>} -->
     </article>
 
-    {pizza.canBeEdit && (
-      <article className="details-btns-admin">
-        {isOwner && (
-          <Link to={`/edit/${pizza._id}`} className="details-btn-edit">
+    <!-- {pizza.canBeEdit && ( -->
+      <article class="details-btns-admin" *ngIf="!isEditMode && !isOwner">
+        <!-- {isOwner && -->
+          <a routerLink="/edit/:id" class="details-btn-edit" (click)="toggleEditMode()">
             EDIT
-          </Link>
-        )}
-        <Likes/>
-        {isOwner && (
-          <button className="details-btn-delete" onClick={deletePizza}>
+          </a>
+        <!-- )} -->
+        <!-- <Likes/> -->
+        <!-- {isOwner && ( -->
+          <button routerLink="/delete/:id" class="details-btn-delete" (click)="deletePizza()">
             Delete
           </button>
-        )}
+        <!-- )} -->
       </article>
-    )}
-  </article>
 
-  <Comments/>
-ne zabravqi da popravi6 className
-</section> -->
+  </article>
+</section>
+
+  <!-- <Comments/>
+ne zabravqi da popravi6 className -->

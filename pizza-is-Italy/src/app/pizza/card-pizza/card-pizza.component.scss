@@ -5,3 +5,92 @@
   width: 370px;
   height: 188px;
 }
+// traditional
+.traditional-pizzas{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 300vh;
+  justify-content: space-evenly;
+  background-color: bisque;
+}
+
+.pizze-tradizionali{
+  max-width: 370px;
+  max-height: 415px;
+  border: 3px solid rgb(180, 176, 176);
+  margin: 30px;
+
+  border-radius: 24px;
+
+  position: relative;
+
+}
+
+.pizze-tradizionali .img{
+  width: 370px;
+  border-radius: 24px;
+  padding:0px;
+
+}
+
+.pizze-tradizionali .img img{
+  width:100%;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+
+
+
+}
+.pizze-tradizionali .info {
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  background-color: beige;
+  top: -40px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  height:220px;
+  font-family: cursive;
+}
+.pizze-tradizionali  .description{
+ margin-bottom: 40px;
+ font-size: 15px;
+}
+.pizze-tradizionali a{
+ display: block;
+ text-decoration: none;
+ border: 1px solid red;
+ border-radius: 8px;
+ width: 80px;
+ position: absolute;
+bottom: 10px;
+
+ left: 130px;
+ color: white;
+ font-size: 20px;
+ background-color: crimson;
+}
+
+.price{
+  font-size: 20px;
+  margin: 0px;
+}
+
+.pizza-name{
+  color:crimson;
+}
+
+.traditional-pizzas-title{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color:crimson;
+  font-size: 40px;
+}
+
+.traditional-pizzas-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+

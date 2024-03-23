@@ -16,10 +16,13 @@
       />
 
       <ng-container *ngIf="inputName.touched">
-        <p class="error" *ngIf="inputName.errors?.['required']">Name is required!</p>
-        <p class="error" *ngIf="inputName.errors?.['minlength']">Name has to be at least 3 characters long!</p>
+        <p class="error" *ngIf="inputName.errors?.['required']">
+          Name is required!
+        </p>
+        <p class="error" *ngIf="inputName.errors?.['minlength']">
+          Name has to be at least 3 characters long!
+        </p>
       </ng-container>
-
 
       <label for="pizza-img">Image:</label>
       <input
@@ -29,29 +32,73 @@
         placeholder="Upload a photo..."
         value=""
         ngModel
+        #inputImage="ngModel"
+        required
       />
+      <ng-container *ngIf="inputImage.touched">
+        <p class="error" *ngIf="inputImage.errors?.['required']">
+         Image is required!
+        </p>
+      </ng-container>
       <label for="ingredients">Your Ingredients</label>
-      <textarea ngModel name="ingredients" value="" id="ingredients" type="text" placeholder="Enter your ingredients..."></textarea>
+      <textarea
+        ngModel
+        #textareaInputIngredients="ngModel"
+        name="ingredients"
+        value=""
+        id="ingredients"
+        type="text"
+        placeholder="Enter your ingredients..."
+        required
+        minlength="10"
+      ></textarea>
 
-
+      <ng-container *ngIf="textareaInputIngredients.touched">
+        <p class="error" *ngIf="textareaInputIngredients.errors?.['required']">
+         Describe ingredients!
+        </p>
+        <p class="error" *ngIf="textareaInputIngredients.errors?.['minlength']">
+         Description has to be at least 10 characters long!
+        </p>
+      </ng-container>
       <label for="notes">Notes:</label>
-      <textarea name="notes" id="notes" value="" ngModel></textarea>
+      <textarea
+        name="notes"
+        id="notes"
+        value=""
+        ngModel
+        #textareaInputNotes="ngModel"
+      ></textarea>
 
       <label for="price">Price:</label>
       <input
         type="number"
         id="price"
         name="price"
-        min="{4}"
-        max="{30}"
+        min="4"
+        max="30"
         placeholder="{4}"
         value=""
         ngModel
+        #inputPrice="ngModel"
+        required
+
       />
+      <ng-container *ngIf="inputPrice.touched">
+        <p class="error" *ngIf="inputPrice.errors?.['required']">
+          Price is required!
+        </p>
+        <p class="error" *ngIf="inputPrice.errors?.['min']">
+          Price has to start from 4 euro minimum!
+        </p>
+        <p class="error" *ngIf="inputPrice.errors?.['max']">
+          Price should not be over 30 euro!
+        </p>
+      </ng-container>
       <span>$</span>
 
-     <!-- {error && error}  -->
-    <input class="btn submit" type="submit" value="CREATE"/>
+      <!-- {error && error}  -->
+      <input class="btn submit" [disabled]="form.invalid" type="submit" [style]="{backgroundColor: form.invalid ? '' : 'yellow'}" value="CREATE" />
     </div>
   </form>
 </section>

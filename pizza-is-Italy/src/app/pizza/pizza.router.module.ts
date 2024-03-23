@@ -8,6 +8,7 @@ import { MainComponent } from '../main/main/main.component';
 import { WhitePizzasComponent } from './white-pizzas/white-pizzas.component';
 import { CardPizzaComponent } from './card-pizza/card-pizza.component';
 import { DetailsComponent } from '../main/main/details/details.component';
+import { EditComponent } from '../main/main/edit/edit.component';
 
 const routes: Routes = [
   {
@@ -60,13 +61,17 @@ const routes: Routes = [
   {
     path: 'white',
     component: WhitePizzasComponent,
-   
+
   },
 
-  // {
-  //   path: '/details/:pizzaId',
-  //  component: DetailsComponent,
-  // },
+   {
+  path: 'details/:pizzaId',
+   component: DetailsComponent,
+   },
+   {
+  path: 'edit/:pizzaId',
+   component: EditComponent,
+   },
 
 ];
 

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormBuilder } from '@angular/forms';
 import { DEFAULT_EMAIL_DOMAINS } from 'src/app/shared/constants';
+import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,16 @@ import { DEFAULT_EMAIL_DOMAINS } from 'src/app/shared/constants';
 })
 export class LoginComponent {
   appEmailDomains = DEFAULT_EMAIL_DOMAINS;
-  constructor(private userService: UserService, private router: Router){
+  userDetails: User | undefined;
+
+  form = this.fb.group({
+
+    username: ['username'],
+    password: ['password'],
+
+
+  });
+  constructor(private userService: UserService, private router: Router, private fb: FormBuilder){
 
   }
   login(form: NgForm):void{
@@ -23,6 +33,6 @@ export class LoginComponent {
 
       this.userService.login();
       this.router.navigate(['/']);
-
+      this.userDetails = {...this.form.value} as User;
   }
 }

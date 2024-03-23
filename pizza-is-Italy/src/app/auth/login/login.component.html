@@ -16,6 +16,7 @@
         ngModel
         required
         [appEmail]="appEmailDomains"
+        [value]="userDetails?.email"
       />
 
       <ng-container *ngIf="inputEmail.touched">
@@ -37,6 +38,7 @@
         ngModel
         required
         minlength="5"
+        [value]="userDetails?.password"
       />
 
       <ng-container *ngIf="inputPassword.touched">
@@ -58,6 +60,6 @@
       </a>
     </article>
   </article>
- 
+
 </section>
 

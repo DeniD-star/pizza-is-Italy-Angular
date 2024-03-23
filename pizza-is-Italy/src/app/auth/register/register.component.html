@@ -9,6 +9,7 @@
         name="email"
         placeholder="Email"
         formControlName="email"
+        [value]="userDetails?.email"
       />
 
       <ng-container *ngIf="form.get('email')?.touched">
@@ -30,6 +31,7 @@
         name="username"
         placeholder="Enter your Username"
         formControlName="username"
+        [value]="userDetails?.username"
       />
       <ng-container *ngIf="form.get('username')?.touched">
         <p class="error" *ngIf="form.get('username')?.errors?.['required']">

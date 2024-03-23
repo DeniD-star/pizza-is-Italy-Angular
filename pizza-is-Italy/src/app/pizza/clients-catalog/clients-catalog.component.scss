@@ -1,3 +1,7 @@
+@import url("https://use.fontawesome.com/releases/v6.1.1/css/all.css");
+
+
+
 .client-section{
 
   background-color: bisque;
@@ -24,13 +28,7 @@
 
 }
 
-.my-pizzas-list{
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  
-}
+
 
 
 .add-btn-container{
@@ -59,3 +57,159 @@
   font-size: 90px;
   color:rgb(230, 96, 96);
 }
+
+// new
+.menu {
+  height: 80vh;
+  background-color: bisque;
+
+}
+
+.nav-menu {
+  list-style: none;
+  width: 800px;
+  // text-align: center;
+  position: absolute;
+  top: 200px;
+  left: 330px;
+//  margin-top: 0px;
+
+}
+
+.nav-menu .list-item-menu {
+  border: 3px solid gray;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background-color: rgb(230, 96, 96);
+  display: flex;
+  justify-content: space-between;
+
+  -webkit-box-shadow: 8px -1px 15px -2px #000000;
+  -moz-box-shadow: 8px -1px 15px -2px #000000;
+  -o-box-shadow: 8px -1px 15px -2px #000000;
+  box-shadow: 8px -1px 15px -2px #000000;
+
+}
+
+.link-menu {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(30, 28, 28);
+  display: flex;
+  flex-direction: row;
+}
+
+.fa-solid.fa-arrow-right-long {
+  font-size: 30px;
+}
+//
+.pizze-tradizionali .img img {
+  width: 100%;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  width: 370px;
+  height: 188px;
+}
+//tradizionali
+.traditional-pizzas{
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 100vw;
+  height: 300vh;
+  justify-content: space-evenly;
+  background-color: bisque;
+}
+
+.pizze-tradizionali{
+  max-width: 370px;
+  max-height: 415px;
+  border: 3px solid rgb(180, 176, 176);
+  margin: 30px;
+
+  border-radius: 24px;
+
+  position: relative;
+
+}
+
+.pizze-tradizionali .img{
+  width: 370px;
+  border-radius: 24px;
+  padding:0px;
+
+}
+
+.pizze-tradizionali .img img{
+  width:100%;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+
+
+
+}
+.pizze-tradizionali .info {
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  background-color: beige;
+  top: -40px;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
+  height:220px;
+  font-family: cursive;
+}
+.pizze-tradizionali  .description{
+ margin-bottom: 40px;
+ font-size: 15px;
+}
+.pizze-tradizionali a{
+ display: block;
+ text-decoration: none;
+ border: 1px solid red;
+ border-radius: 8px;
+ width: 80px;
+ position: absolute;
+bottom: 10px;
+
+ left: 130px;
+ color: white;
+ font-size: 20px;
+ background-color: crimson;
+}
+
+.price{
+  font-size: 20px;
+  margin: 0px;
+}
+
+.pizza-name{
+  color:crimson;
+}
+
+.traditional-pizzas-title{
+  text-align: center;
+  font-family: 'Courier New', Courier, monospace;
+  color:crimson;
+  font-size: 40px;
+}
+
+.traditional-pizzas-list{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.my-pizzas-list{
+//   display: flex;
+// //   flex-direction: row;
+  display: inline-block;
+// flex-wrap: wrap;
+// flex-direction: row;
+list-style: none;
+
+}
+
+

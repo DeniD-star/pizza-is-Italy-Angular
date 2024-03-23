@@ -17,6 +17,7 @@ import { UserOrdersComponent } from '../auth/user/user-orders/user-orders.compon
 import { PizzaModule } from '../pizza/pizza.module';
 import { PizzaRoutingModule } from '../pizza/pizza.router.module';
 import { CoreModule } from '../core/core.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import { CoreModule } from '../core/core.module';
     // UserPizzasComponent
 
   ],
-  imports: [CommonModule, MainRoutingModule, PizzaModule, CoreModule],
+  imports: [CommonModule, MainRoutingModule, PizzaModule, CoreModule, FormsModule],
   exports: [
     MainComponent,
     CatalogComponent,
@@ -41,7 +42,9 @@ import { CoreModule } from '../core/core.module';
     DrinksComponent,
     EditComponent,
     ProfileComponent,
-    CreateComponent
+    CreateComponent,
+    DetailsComponent
+
     // UserOrdersComponent,
     // UserPizzasComponent
   ],

@@ -11,12 +11,13 @@ import { MainModule } from './main/main.module';
  import { SharedModule } from './shared/shared.module';
 import { UserRoutingModule } from './auth/user.routing.module';
 import { PizzaRoutingModule } from './pizza/pizza.router.module';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [AppComponent,  ],
-  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule,AuthModule, MainModule, SharedModule, UserRoutingModule, PizzaRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule, AuthModule, MainModule, SharedModule, UserRoutingModule, PizzaRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
