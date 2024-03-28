@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 // import {  NgForm } from '@angular/forms';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Pizza } from 'src/app/types/pizza';
 
@@ -17,7 +17,7 @@ export class DetailsComponent {
 
   route: ActivatedRoute = inject(ActivatedRoute);
   apiService = inject(ApiService);
-  pizza: Pizza | undefined;
+  pizza: Pizza | undefined | any;
 
 
 //   editPizzaSubmitHandler(pizza: NgForm): void{
@@ -29,14 +29,25 @@ export class DetailsComponent {
 // }
 
 constructor() {
-  const pizzaId = this.route.snapshot.params['id'];
- this.pizza = Object(this.apiService.getClientPizza(pizzaId)) ;
+  // const pizzaId = this.route.snapshot.params['pizzaId'];
+  this.route.params.subscribe((params: Params) => {
+    const pizzaId = params['id'];
+
+  console.log(pizzaId);
+  console.log(this.route)
+  this.pizza = this.apiService.getClientPizza(pizzaId) ;
+  console.log(this.pizza);
+ });
+
+
+
 }
 
   toggleEditMode():void{
     this.isEditMode = !this.isEditMode;
     this.isOwner = !this.isOwner;
   }
+
   addToTheCartHandler():void{
 
   }

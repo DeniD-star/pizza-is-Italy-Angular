@@ -16,7 +16,7 @@
         ngModel
         required
         [appEmail]="appEmailDomains"
-        [value]="userDetails?.email"
+         
       />
 
       <ng-container *ngIf="inputEmail.touched">
@@ -38,7 +38,7 @@
         ngModel
         required
         minlength="5"
-        [value]="userDetails?.password"
+
       />
 
       <ng-container *ngIf="inputPassword.touched">
@@ -55,7 +55,7 @@
       <a routerLink="##" class="link-forgotten">
         Forgotten username/password
       </a>
-      <a routerLink="/register" class="create-account">
+      <a routerLink="/users/register" class="create-account">
         Create new account
       </a>
     </article>

@@ -12,13 +12,14 @@ import { MainModule } from './main/main.module';
 import { UserRoutingModule } from './auth/user.routing.module';
 import { PizzaRoutingModule } from './pizza/pizza.router.module';
 import { FormsModule } from '@angular/forms';
+import { appInterceptorProvider } from './app.interceptor';
 
 
 
 @NgModule({
   declarations: [AppComponent,  ],
   imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule, AuthModule, MainModule, SharedModule, UserRoutingModule, PizzaRoutingModule],
-  providers: [],
+  providers: [appInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

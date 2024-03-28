@@ -43,10 +43,10 @@ const routes: Routes = [
         component: CreateComponent,
         canActivate: [AuthActivate ]
       },
-      {
-        path: ':pizzaId',
-        component: CardPizzaComponent
-      }
+      // {
+      //   path: ':pizzaId',
+      //   component: CardPizzaComponent
+      // }
     ],
   },
   {
@@ -64,6 +64,10 @@ const routes: Routes = [
 
   },
 
+  //  {
+  // path: 'details/:pizzaId',
+  //  component: DetailsComponent,
+  //  },
    {
   path: 'details/:pizzaId',
    component: DetailsComponent,
@@ -71,6 +75,7 @@ const routes: Routes = [
    {
   path: 'edit/:pizzaId',
    component: EditComponent,
+   canActivate: [AuthActivate ]
    },
 
 ];

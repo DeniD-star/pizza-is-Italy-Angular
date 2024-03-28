@@ -10,12 +10,12 @@ import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 
 const routes: Routes = [
 {
-  path: 'login',
+  path: 'users/login',
  component: LoginComponent,
 //  canActivate: [AuthActivate ]
 },
 {
-  path: 'register',
+  path: 'users/register',
   component: RegisterComponent,
   // canActivate: [AuthActivate ]
 },

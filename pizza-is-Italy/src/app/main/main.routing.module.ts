@@ -12,6 +12,8 @@ import { MainComponent } from './main/main.component';
 import { CardPizzaComponent } from '../pizza/card-pizza/card-pizza.component';
 import { PageNotFoundComponent } from '../core/page-not-found/page-not-found.component';
 import { DetailsComponent } from './main/details/details.component';
+import { DrinksComponent } from './main/drinks/drinks.component';
+import { DessertsComponent } from './main/desserts/desserts.component';
 
 const routes: Routes = [
   {
@@ -33,8 +35,8 @@ const routes: Routes = [
         path: 'white',
         component: WhitePizzasComponent,
       },
-      // {
-      //   path: 'drinks',
+      //  {
+      //  path: 'drinks',
       //   component: DrinksComponent,
       // },
       // {

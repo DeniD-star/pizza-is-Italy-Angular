@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { User } from '../types/user';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.development';
+import { Observable, interval, take, shareReplay } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -18,26 +19,42 @@ export class UserService {
     try {
       const lsUser = localStorage.getItem(this.USER_KEY) || '';
       this.user = JSON.parse(lsUser);
+      console.log(this.user);
     } catch (error) {
       this.user = undefined;
     }
   }
 
-  getAllUsers() {//questo e' quello che ho aggiunto io
+  getAllUsers() {
+    //questo e' quello che ho aggiunto io
     // return this.http.get(environment.appUrl)//po tozi na4in si fetchvam dannite
     //ot tuk natatuk vij workshopcomponents minuta 00:43
-    const {appUsersUrl} = environment;
+    const { appUsersUrl } = environment;
     return this.http.get<User[]>(`${appUsersUrl}`);
   }
 
-  login(): void {
-    this.user = {
-      email: 'john.berry@abv.bg',
-      password: '1234',
-      username: 'DeniD',
-      repeatPassword: ''
-    };
-    localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+  login(email: string, password: string) {
+    // this.user = {
+    //   email: 'john.berry@abv.bg',
+    //   password: '1234',
+    //   username: 'DeniD',
+    //   repeatPassword: ''
+    // };
+    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
+    return this.http.post<User>('/users/login', { email, password });
+  }
+  register(
+    email: string,
+    username: string,
+    password: string,
+    rePassword: string
+  ) {
+    return this.http.post<User>('/users/register', {
+      email,
+      username,
+      password,
+      rePassword,
+    });
   }
 
   logout(): void {

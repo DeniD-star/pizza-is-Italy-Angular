@@ -1,6 +1,6 @@
-  export interface User{
+export interface User {
   email: string;
-   username: string;
+  username: string;
   password: string;
-  repeatPassword: string
+  repeatPassword: string;
 }
