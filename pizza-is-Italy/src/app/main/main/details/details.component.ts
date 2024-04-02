@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 // import {  NgForm } from '@angular/forms';
 
 import { ActivatedRoute, Params } from '@angular/router';
@@ -11,48 +11,44 @@ import { Pizza } from 'src/app/types/pizza';
   styleUrls: ['./details.component.scss'],
 
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
   isEditMode: boolean = false;
   isOwner: boolean = false;
-
   route: ActivatedRoute = inject(ActivatedRoute);
-  apiService = inject(ApiService);
-  pizza: Pizza | undefined | any;
+  pizza: Pizza | undefined;
 
 
-//   editPizzaSubmitHandler(pizza: NgForm): void{
-//     if(pizza.invalid){
-//       return;
-//     }
-//     console.log(pizza.value);
+  //   editPizzaSubmitHandler(pizza: NgForm): void{
+  //     if(pizza.invalid){
+  //       return;
+  //     }
+  //     console.log(pizza.value);
 
-// }
+  // }
 
-constructor() {
-  // const pizzaId = this.route.snapshot.params['pizzaId'];
-  this.route.params.subscribe((params: Params) => {
-    const pizzaId = params['id'];
+  constructor(private apiService: ApiService) {
+    // const pizzaId = this.route.snapshot.params['pizzaId'];
+  }
 
-  console.log(pizzaId);
-  console.log(this.route)
-  this.pizza = this.apiService.getClientPizza(pizzaId) ;
-  console.log(this.pizza);
- });
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      const pizzaId = params['pizzaId'];
+      this.apiService.getClientPizza(pizzaId).subscribe(
+        (pizza: Pizza) => this.pizza = pizza
+      );
+    });
+  }
 
-
-
-}
-
-  toggleEditMode():void{
+  toggleEditMode(): void {
     this.isEditMode = !this.isEditMode;
     this.isOwner = !this.isOwner;
   }
 
-  addToTheCartHandler():void{
+  addToTheCartHandler(): void {
 
   }
 
-  deletePizza():void{
+  deletePizza(): void {
 
   }
 }

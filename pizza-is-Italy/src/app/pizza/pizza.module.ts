@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
 import { MainModule } from '../main/main.module';
 import { MainRoutingModule } from '../main/main.routing.module';
-import { UserRoutingModule } from '../auth/user.routing.module';
 import { AuthModule } from '../auth/auth.module';
 
 
@@ -18,10 +17,9 @@ import { AuthModule } from '../auth/auth.module';
     TraditionalPizzasComponent,
     WhitePizzasComponent,
     CardPizzaComponent, CreateComponent
-
   ],
   imports: [
-    CommonModule, PizzaRoutingModule, FormsModule, MainRoutingModule, UserRoutingModule, AuthModule
+    CommonModule, PizzaRoutingModule, FormsModule, MainRoutingModule, AuthModule
   ],
   exports: [TraditionalPizzasComponent, WhitePizzasComponent, CreateComponent]
 })

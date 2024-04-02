@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { NgForm, FormBuilder } from '@angular/forms';
-import { DEFAULT_EMAIL_DOMAINS } from 'src/app/shared/constants';
+import { DEFAULT_EMAIL_DOMAINS, USER_KEY } from 'src/app/shared/constants';
 import { User } from 'src/app/types/user';
 
 @Component({
@@ -23,24 +23,8 @@ export class LoginComponent {
     private userService: UserService,
     private router: Router,
     private fb: FormBuilder
-  ) {}
+  ) { }
 
-  // login(form: NgForm): void {
-  //   //ToDo For now we are not handling the data
-  //   console.log(form.value);
-  //   if (form.invalid) {
-  //     return;
-  //   }
-
-  //   const { email, password } = form.value;
-
-  //   this.userService.login(email, password).subscribe(() => {
-  //     this.router.navigate(['/']);
-  //     // this.userDetails = {...this.form.value} as User;
-
-  //   });
-
-  // }
   login(form: NgForm): void {
     if (form.invalid) {
       return;
@@ -48,9 +32,12 @@ export class LoginComponent {
 
     const { email, password } = form.value;
 
-    this.userService.login(email, password).subscribe(() => {
-      this.router.navigate(['/']);
+    this.userService.login(email, password).subscribe({
+      next: (user) => { // salva la risposta del server USER nel localstorage
+        localStorage.setItem(USER_KEY, JSON.stringify(user))
+      },
+      error: (error) => alert(error.error.message),
+      complete: () => this.router.navigate(['/'])
     });
-    this.router.navigate(['/']);
   }
 }

@@ -35,48 +35,22 @@ export class RegisterComponent {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router
-  ) {}
-  // register(): void {
-  //   //ToDo For now we are not handling the data
-  //   console.log(this.form.value);
-  //   if (this.form.invalid) {
-  //     return;
-  //   }
-
-  //   const {
-  //     email,
-  //     username,
-  //     passGroup: {password, rePassword} = {},
-  //   } = this.form.value;
-
-  //   this.userService.register(
-  //     email!,
-  //     username!,
-  //     password!,
-  //     rePassword!).subscribe(() => {
-
-  //   });
-  //   this.router.navigate(['/users/login']);
-  //   this.userDetails = { ...this.form.value } as User;
-  // }
+  ) { }
 
   register(): void {
-    if (this.form.invalid) {
-      return;
+    if (this.form.invalid) { return; }
+
+    const { passGroup: { password, rePassword } = {} } = this.form.value;
+    const user: User = {
+      username: this.form.get('username')?.value as string,
+      email: this.form.get('email')?.value as string,
+      password: password as string,
+      repeatPassword: rePassword as string
     }
 
-    const {
-      email,
-      username,
-      passGroup: { password, rePassword } = {},
+    this.userService.register(user).subscribe({
+      complete: () => this.router.navigate(['/users/login'])
+    });
 
-    } = this.form.value;
-
-    this.userService
-      .register(email!, username!,  password!, rePassword!)
-      .subscribe(() => {
-        this.router.navigate(['/users/login']);
-      });
-      
   }
 }

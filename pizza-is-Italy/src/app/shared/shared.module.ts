@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppEmailDirective } from './validators/app-email.directive';
-import { FormsModule } from '@angular/forms';
-
+import { CheckUserPipe } from './check-user.pipe';
 
 
 @NgModule({
   declarations: [
-    AppEmailDirective
+    AppEmailDirective,
+    CheckUserPipe
   ],
   imports: [
     CommonModule
   ],
-  exports: [AppEmailDirective]
+  exports: [AppEmailDirective, CheckUserPipe]
 })
 export class SharedModule { }

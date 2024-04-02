@@ -3,7 +3,6 @@
     <h2>Login:</h2>
     <form id="view-login" #form="ngForm" (ngSubmit)="login(form)">
       <label htmlFor="email">
-
         <i class="fa-solid fa-user"></i>Email:
       </label>
 
@@ -16,7 +15,6 @@
         ngModel
         required
         [appEmail]="appEmailDomains"
-         
       />
 
       <ng-container *ngIf="inputEmail.touched">

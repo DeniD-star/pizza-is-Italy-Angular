@@ -58,7 +58,6 @@ const routes: Routes = [
     path: 'clientsPizzas',
     component: ClientsCatalogComponent,
   },
-
   {
     path: 'page-not-found',
     component: PageNotFoundComponent

@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [ngClass]="isLoggedIn ? 'headerLoggedIn' : 'headerNotLogged'">
   <a routerLink="/" class="title-link">
     <h1 class="title">Pizza is <span class="italy">Italy</span></h1>
   </a>
@@ -12,42 +12,44 @@
       </section>
       <section class="user-navigation">
         <li class="list-item">
-          <i class="fa-solid fa-caret-down"></i>
+          <i class="fa-solid fa-newspaper"></i>
           <a routerLink="/catalog" class="nav-link drop-down"> Our Menu </a>
         </li>
-        <li class="list-item">
-          <i class="fa-solid fa-comments"></i>
-          <a routerLink="/clientsPizzas" class="nav-link"> Clients catalog </a>
-        </li>
 
-        <li *ngIf="!isLoggedIn" class="list-item">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          <a routerLink="/users/register" class="nav-link"> Register </a>
-        </li>
+        <ng-container *ngIf="!isLoggedIn">
+          <li class="list-item">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <a routerLink="/register" class="nav-link"> Register </a>
+          </li>
 
-        <li *ngIf="!isLoggedIn" class="list-item">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          <a routerLink="/users/login" class="nav-link"> Login </a>
-        </li>
+          <li class="list-item">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <a routerLink="/login" class="nav-link"> Login </a>
+          </li>
+        </ng-container>
 
-        <li *ngIf="isLoggedIn" class="list-item">
-          <i class="fa-solid fa-right-to-bracket"></i>
-          <a (click)="logout()" class="nav-link"> Logout </a>
-        </li>
-        <li *ngIf="isLoggedIn" class="list-item">
-          <a routerLink="/cart" class="nav-link">
+        <ng-container *ngIf="isLoggedIn">
+          <li class="list-item">
+            <i class="fa-solid fa-comments"></i>
+            <a routerLink="/clientsPizzas" class="nav-link"> Clients catalog </a>
+          </li>
+          <li class="list-item">
             <i class="fa-solid fa-cart-arrow-down"></i>
-            Cart
-          </a>
-        </li>
-
-
-        <li *ngIf="isLoggedIn" class="list-item">
-          <a routerLink="/profile" class="nav-link">
-            {{ username }}
-          </a>
-          <i class="fa-solid fa-user"></i>
-        </li>
+            <a routerLink="/cart" class="nav-link">
+              Cart
+            </a>
+          </li>
+          <li class="list-item">
+            <i class="fa-solid fa-user"></i>
+            <a routerLink="/profile" class="nav-link">
+              {{ username }}
+            </a>
+          </li>
+          <li class="list-item">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            <a (click)="logout()" class="nav-link"> Logout </a>
+          </li>
+        </ng-container>
 
       </section>
     </ul>

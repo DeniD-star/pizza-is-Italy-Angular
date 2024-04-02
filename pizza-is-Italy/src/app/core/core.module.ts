@@ -8,20 +8,18 @@ import { RouterModule } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ContactsComponent } from './home/contacts/contacts.component';
 import { AboutUsComponent } from './home/about-us/about-us.component';
-import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
     HomeComponent,
-
     HeaderComponent,
-
     FooterComponent,
     PageNotFoundComponent,
     ContactsComponent,
     AboutUsComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, SharedModule],
   exports: [
     HomeComponent,
     ContactsComponent,
