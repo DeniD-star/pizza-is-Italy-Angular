@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ContactsComponent } from './home/contacts/contacts.component';
 import { AboutUsComponent } from './home/about-us/about-us.component';
 import { SharedModule } from '../shared/shared.module';
+import { HomePresentationComponent } from './home/home-presentation/home-presentation.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { SharedModule } from '../shared/shared.module';
     PageNotFoundComponent,
     ContactsComponent,
     AboutUsComponent,
+    HomePresentationComponent,
   ],
   imports: [CommonModule, RouterModule, SharedModule],
   exports: [
@@ -27,6 +29,7 @@ import { SharedModule } from '../shared/shared.module';
     HeaderComponent,
     AboutUsComponent,
     PageNotFoundComponent,
+    HomePresentationComponent
   ],
 })
 export class CoreModule {}

@@ -15,8 +15,9 @@ import { appInterceptorProvider } from './app.interceptor';
 
 
 
+
 @NgModule({
-  declarations: [AppComponent,  ],
+  declarations: [AppComponent,   ],
   imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule, AuthModule, MainModule, SharedModule, PizzaRoutingModule],
   providers: [appInterceptorProvider],
   bootstrap: [AppComponent],

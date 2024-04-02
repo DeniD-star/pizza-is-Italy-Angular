@@ -1,5 +1,41 @@
-<section class="menu-cart">
+<!-- <section class="menu-cart">
     <div class="container">
         Carrello
     </div>
+</section> -->
+<section class="cart">
+  <h1 class="cart-page-heading">PIZZERIA</h1>
+  <article class="cart-article">
+    <h2 class="cart-article-heading">CART</h2>
+    <article class="cart-info-article">
+      <ul class="cart-list">
+        <!-- {userCartList.length > 0 &&
+          userCartList.map((order) => ( -->
+            <!-- <li key={order._id}> -->
+              <!-- <CartOrderItem order={order}/> -->
+            <!-- </li> -->
+          <!-- ))} -->
+      </ul>
+      <p class="total-price">
+        <!-- Total Price:{totalPrice}$ -->
+      </p>
+    </article>
+  </article>
+
+ <!-- { userCartList.length > 0 && -->
+  <article class="btns-order">
+    <button class="cancel-order" onClick={cancelOrders}>
+      Cancel the order
+    </button>
+    <button class="place-order" onClick={successfulOrderHandler}>
+      Place the order
+    </button>
+  </article>
+<!-- } -->
+
+  <!-- {!userCartList.length && ( -->
+    <article class="no-orders">
+      <p>No orders at the moment!</p>
+    </article>
+  <!-- )} -->
 </section>
