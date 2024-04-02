@@ -9,8 +9,15 @@ import { WhitePizzasComponent } from './white-pizzas/white-pizzas.component';
 import { CardPizzaComponent } from './card-pizza/card-pizza.component';
 import { DetailsComponent } from '../main/main/details/details.component';
 import { EditComponent } from '../main/main/edit/edit.component';
+import { DrinksComponent } from '../main/main/drinks/drinks.component';
+import { DessertsComponent } from '../main/main/desserts/desserts.component';
+import { CatalogComponent } from '../main/main/catalog/catalog.component';
 
 const routes: Routes = [
+  {
+    path: 'catalog',
+    component: CatalogComponent,
+  },
   {
     path: 'traditional',
     component: TraditionalPizzasComponent,
@@ -29,20 +36,12 @@ const routes: Routes = [
       {
         path: 'white',
         component: WhitePizzasComponent,
-      },
-      // {
-      //   path: 'drinks',
-      //   // component: DrinksComponent,
-      // },
-      // {
-      //   path: 'desserts',
-      //   // component: DessertsComponent,
-      // },
-      {
+      }
+      /* {
         path: 'create',
         component: CreateComponent,
-        canActivate: [AuthActivate ]
-      },
+        canActivate: [AuthActivate]
+      }, */
       // {
       //   path: ':pizzaId',
       //   component: CardPizzaComponent
@@ -51,32 +50,39 @@ const routes: Routes = [
   },
   {
     path: 'clientsPizzas',
-   component: ClientsCatalogComponent,
+    component: ClientsCatalogComponent,
   },
   {
     path: 'create',
     component: CreateComponent,
-    canActivate: [AuthActivate ]
+    canActivate: [AuthActivate]
+  },
+  {
+    path: 'drinks',
+    component: DrinksComponent,
+  },
+  {
+    path: 'desserts',
+    component: DessertsComponent,
   },
   {
     path: 'white',
-    component: WhitePizzasComponent,
-
+    component: WhitePizzasComponent
   },
 
   //  {
   // path: 'details/:pizzaId',
   //  component: DetailsComponent,
   //  },
-   {
-  path: 'details/:pizzaId',
-   component: DetailsComponent,
-   },
-   {
-  path: 'edit/:pizzaId',
-   component: EditComponent,
-   canActivate: [AuthActivate ]
-   },
+  {
+    path: 'details/:pizzaId',
+    component: DetailsComponent,
+  },
+  {
+    path: 'edit/:pizzaId',
+    component: EditComponent,
+    canActivate: [AuthActivate]
+  },
 
 ];
 
@@ -84,4 +90,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class PizzaRoutingModule {}
+export class PizzaRoutingModule { }

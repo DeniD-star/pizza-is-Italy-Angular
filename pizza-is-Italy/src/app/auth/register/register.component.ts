@@ -49,7 +49,8 @@ export class RegisterComponent {
     }
 
     this.userService.register(user).subscribe({
-      complete: () => this.router.navigate(['/users/login'])
+      error: (error) => alert(error.error.message),
+      complete: () => this.router.navigate(['/login'])
     });
 
   }

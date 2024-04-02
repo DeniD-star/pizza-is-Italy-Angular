@@ -12,21 +12,20 @@
         <i class="fa-solid fa-pizza-slice"></i>
       </a>
     </li>
-    <!-- <li class="list-item-menu">
-      <a routerLink="/drinks" class="link-menu">
+    <li class="list-item-menu" routerLink="/drinks">
+      <a class="link-menu">
         DRINKS
+        <i class="fa-solid fa-wine-glass"></i>
       </a>
-      <i class="fa-solid fa-arrow-right-long"></i>
     </li>
-    <li class="list-item-menu">
-      <a routerLink="/desserts" class="link-menu">
+    <li class="list-item-menu"  routerLink="/desserts">
+      <a class="link-menu">
         DESSERTS
+        <i class="fa-solid fa-cake-candles"></i>
       </a>
-      <i class="fa-solid fa-arrow-right-long"></i>
-    </li> -->
+    </li>
 
-
-    <li class="list-item-menu" routerLink="/create">
+    <li class="list-item-menu" routerLink="/create" *ngIf="isLoggedIn">
       <a class="link-menu">
         CREATE YOUR PIZZA
         <i class="fa-solid fa-pizza-slice"></i>

@@ -9,35 +9,29 @@ import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 
 
 const routes: Routes = [
-{
-  path: 'login',
- component: LoginComponent,
-//  canActivate: [AuthActivate ]
-},
-{
-  path: 'register',
-  component: RegisterComponent,
-  // canActivate: [AuthActivate ]
-},
-{
-  path: 'profile',
-  component: ProfileComponent,
-  //  canActivate: [AuthActivate ],
-  children: [
-    {
-      path: 'user-pizzas',
-      component: UserPizzasComponent
-    },
-
-    {
-      path: 'user-orders',
-      component: UserOrdersComponent,
-
-    },
-  ]
-},
-
-
+  {
+    path: 'login',
+    component: LoginComponent,
+    //  canActivate: [AuthActivate ]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    // canActivate: [AuthActivate ]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    //  canActivate: [AuthActivate ],
+  },
+  {
+    path: 'user-pizzas',
+    component: UserPizzasComponent
+  },
+  {
+    path: 'user-orders',
+    component: UserOrdersComponent,
+  }
 ];
 
 @NgModule({

@@ -16,7 +16,7 @@ import { DrinksComponent } from './main/drinks/drinks.component';
 import { DessertsComponent } from './main/desserts/desserts.component';
 
 const routes: Routes = [
-  {
+  /* {
     path: 'catalog',
     component: CatalogComponent,
     children: [
@@ -29,25 +29,19 @@ const routes: Routes = [
       {
         path: 'traditional',
         component: TraditionalPizzasComponent,
-
       },
       {
         path: 'white',
         component: WhitePizzasComponent,
       },
-      //  {
-      //  path: 'drinks',
-      //   component: DrinksComponent,
-      // },
-      // {
-      //   path: 'desserts',
-      //   component: DessertsComponent,
-      // },
-      // {
-      //   path: 'create',
-      //   component: CreateComponent,
-      //   canActivate: [AuthActivate ]
-      // },
+      {
+        path: 'drinks',
+        component: DrinksComponent,
+      },
+      {
+        path: 'desserts',
+        component: DessertsComponent,
+      },
       {
         path: ':pizzaId',
         component: CardPizzaComponent
@@ -61,11 +55,11 @@ const routes: Routes = [
   {
     path: 'page-not-found',
     component: PageNotFoundComponent
-  }
+  } */
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MainRoutingModule {}
+export class MainRoutingModule { }

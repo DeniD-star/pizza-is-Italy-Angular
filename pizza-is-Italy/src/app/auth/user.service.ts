@@ -58,13 +58,4 @@ export class UserService {
     localStorage.removeItem(USER_KEY);
   }
 
-  // register(): void{
-  //   this.user = {
-  //     email: 'john.berry@abv.bg',
-  //     username: 'DeniD',
-  //     password: '1234',
-  //     repeatPassword: '1234'
-  //   };
-  //   localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
-  // }
 }
