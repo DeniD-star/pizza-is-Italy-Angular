@@ -1,5 +1,5 @@
- <section class="details-page-section">
-  <article class="details-page" >
+<section class="details-page-section">
+  <article class="details-page">
     <article class="details-page-article-header">
       <img src={{pizza?.imageUrl}} alt="img" class="details-img" />
       <article class="info-quantity">
@@ -7,11 +7,11 @@
         <article class="details-quantity">
           <h2 class="details-quantity-header">QUANTITY</h2>
           <article>
-            <button class="decrease" onClick={decreaseQuantity}>
+            <button class="decrease" (click)="changeQuantity(false)">
               -
             </button>
-            <h2 class="quantity-heading">{{pizza}}</h2>
-            <button class="increase" onClick={increaseQuantity}>
+            <h2 class="quantity-heading">{{quantity}}</h2>
+            <button class="increase" (click)="changeQuantity(true)">
               +
             </button>
           </article>
@@ -37,23 +37,17 @@
       <!-- {isAdded && <p class="pizzaP">{pizza.name} added to the cart!</p>} -->
     </article>
 
-    <!-- {pizza.canBeEdit && ( -->
-      <article class="details-btns-admin" *ngIf="!isEditMode && !isOwner">
-        <!-- {isOwner && -->
-          <a routerLink="/edit/:id" class="details-btn-edit" (click)="toggleEditMode()">
-            EDIT
-          </a>
-        <!-- )} -->
-        <!-- <Likes/> -->
-        <!-- {isOwner && ( -->
-          <button routerLink="/delete/:id" class="details-btn-delete" (click)="deletePizza()">
-            Delete
-          </button>
-        <!-- )} -->
-      </article>
+    <article class="details-btns-admin" *ngIf="pizza?.canBeEdit">
+      <a routerLink="/edit/{{pizza?._id}}" [state]="{pizza: pizza}" class="details-btn-edit">
+        EDIT
+      </a>
+      <button class="details-btn-delete" (click)="deletePizza(pizza)">
+        Delete
+      </button>
+    </article>
 
   </article>
 </section>
 
-  <!-- <Comments/>
+<!-- <Comments/>
 ne zabravqi da popravi6 className -->

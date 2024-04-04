@@ -19,7 +19,7 @@ import { HomePresentationComponent } from './home/home-presentation/home-present
     PageNotFoundComponent,
     ContactsComponent,
     AboutUsComponent,
-    HomePresentationComponent,
+    HomePresentationComponent
   ],
   imports: [CommonModule, RouterModule, SharedModule],
   exports: [

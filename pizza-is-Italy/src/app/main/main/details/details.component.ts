@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 // import {  NgForm } from '@angular/forms';
 
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { Pizza } from 'src/app/types/pizza';
 
@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
   isOwner: boolean = false;
   route: ActivatedRoute = inject(ActivatedRoute);
   pizza: Pizza | undefined;
+  quantity = 1;
 
 
   //   editPizzaSubmitHandler(pizza: NgForm): void{
@@ -26,29 +27,42 @@ export class DetailsComponent implements OnInit {
 
   // }
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private router: Router) {
     // const pizzaId = this.route.snapshot.params['pizzaId'];
   }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       const pizzaId = params['pizzaId'];
-      this.apiService.getClientPizza(pizzaId).subscribe(
+      this.apiService.getOnePizza(pizzaId).subscribe(
         (pizza: Pizza) => this.pizza = pizza
       );
     });
-  }
-
-  toggleEditMode(): void {
-    this.isEditMode = !this.isEditMode;
-    this.isOwner = !this.isOwner;
   }
 
   addToTheCartHandler(): void {
 
   }
 
-  deletePizza(): void {
+  changeQuantity(isAdd: boolean): void {
+    if (isAdd && this.quantity < 10) {
+      this.quantity++
+    } else if (!isAdd && this.quantity > 1) {
+      this.quantity--
+    }
+  }
 
+  deletePizza(pizza: Pizza | undefined): void {
+    const confirmation = window.confirm(
+      "Are you sure you want to delete this pizza?"
+    );
+
+    if (confirmation) {
+      if (pizza?._id) {
+        this.apiService.deletePizza(pizza._id).subscribe({
+          complete: () => this.router.navigate(['/clientsPizzas'])
+        })
+      }
+    }
   }
 }

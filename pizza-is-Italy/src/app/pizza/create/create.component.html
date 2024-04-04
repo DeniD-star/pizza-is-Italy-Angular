@@ -25,7 +25,7 @@
         </p>
       </ng-container>
 
-      <!-- <label for="pizza-img">Image:</label>
+      <label for="pizza-img">Image:</label>
       <input
         type="text"
         id="imageUrl"
@@ -40,7 +40,7 @@
         <p class="error" *ngIf="inputImage.errors?.['required']">
          Image is required!
         </p>
-      </ng-container> -->
+      </ng-container>
       <label for="ingredients">Your Ingredients</label>
       <textarea
         ngModel
@@ -97,7 +97,7 @@
       </ng-container>
 
       <!-- {error && error}  -->
-      <input class="btn submit" [disabled]="form.invalid" type="submit" [style]="{backgroundColor: form.invalid ? 'grey' : ''}" value="CREATE" />
+      <input class="btn submit" [disabled]="form.invalid" type="submit" [style]="{backgroundColor: form.invalid ? '' : 'yellow'}" value="CREATE" />
     </div>
   </form>
 </section>

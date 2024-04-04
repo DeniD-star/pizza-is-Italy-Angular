@@ -1,18 +1,4 @@
-<!-- <section className="white-pizzas">
-  <h1 className="white-pizzas-title">White Pizzas</h1>
-  <article className="white-pizzas-section">
-    <ul className="white-pizzas-list">
-      {pizzaItem.length > 0 && pizzaItem.map((pizza) => (
-        <li key={pizza._id}>
-          <PizzaCard
-            pizza={pizza}
-          />
-        </li>
-      ))}
-    </ul>
-  </article>
-</section> -->
-
+<h1 className="white-pizzas-title">White Pizzas</h1>
 <section class="white-pizzas">
   <article *ngFor="let pizza of whitePizzas" class="pizze-bianche delicata">
     <article class="img">
@@ -25,9 +11,9 @@
         <h5 class="price">{{pizza.price}} $</h5>
       <h3 class="pizza-name">{{pizza.name}}</h3>
       <p class="description">{{pizza.ingredients}}</p>
-      <a href="/pizza-delicata/more">Add</a>
+      <a routerLink="/details/{{pizza._id}}">Details</a>
     </article>
   </article>
-  
+
 
 </section>

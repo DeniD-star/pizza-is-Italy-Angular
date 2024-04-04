@@ -6,8 +6,6 @@ import { CardPizzaComponent } from './card-pizza/card-pizza.component';
 import { PizzaRoutingModule } from './pizza.router.module';
 import { FormsModule } from '@angular/forms';
 import { CreateComponent } from './create/create.component';
-import { MainModule } from '../main/main.module';
-import { MainRoutingModule } from '../main/main.routing.module';
 import { AuthModule } from '../auth/auth.module';
 
 
@@ -19,7 +17,7 @@ import { AuthModule } from '../auth/auth.module';
     CardPizzaComponent, CreateComponent
   ],
   imports: [
-    CommonModule, PizzaRoutingModule, FormsModule, MainRoutingModule, AuthModule
+    CommonModule, PizzaRoutingModule, FormsModule, AuthModule
   ],
   exports: [TraditionalPizzasComponent, WhitePizzasComponent, CreateComponent]
 })

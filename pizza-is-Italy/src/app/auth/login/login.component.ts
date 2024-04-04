@@ -33,10 +33,9 @@ export class LoginComponent {
     const { email, password } = form.value;
 
     this.userService.login(email, password).subscribe({
-      next: (user) => { // salva la risposta del server USER nel localstorage
-        localStorage.setItem(USER_KEY, JSON.stringify(user))
+      next: (user) => { // salva la risposta del server USER nel sessionStorage
+        sessionStorage.setItem(USER_KEY, JSON.stringify(user))
       },
-      error: (error) => alert(error.error.message),
       complete: () => this.router.navigate(['/'])
     });
   }

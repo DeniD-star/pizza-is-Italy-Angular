@@ -9,7 +9,7 @@ export class CheckUserPipe implements PipeTransform {
   constructor() { }
 
   transform(userKey: string): boolean {
-    const user: User = JSON.parse(localStorage.getItem(userKey)!);
+    const user: User = JSON.parse(sessionStorage.getItem(userKey)!);
     if (user) { return true } else { return false };
   }
 

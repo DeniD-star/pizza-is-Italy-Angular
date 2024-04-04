@@ -1,12 +1,31 @@
-<!-- <section class="drinks">
-  <h1 class="drinks-title">DRINKS</h1>
- <ul class="drinks-list"*ngFor="let drink of drinks">
-  {drinks.length > 0 && drinks.map((drink) => (
-     <li key={drink._id}>
-       <DrinkItem -->
-         <!-- drink={drink}
-       /> -->
-     <!-- </li>
-   ))}
- </ul>
-</section> -->
+<h1 class="drinks-title">DRINKS</h1>
+<section class="drinks">
+  <ul class="drinks-list" *ngFor="let drink of drinks">
+    <li>
+      <article class="drink-article drink">
+        <article class="img-drink">
+          <img
+            src={{drink.imageUrl}}
+            alt="drink-img"
+            class="drink-dessert-img"
+          />
+        </article>
+        <div class="btns-quantity">
+            <button class="decrease">
+              -
+            </button>
+            <h2 class="quantity-heading">1</h2>
+            <button class="increase">
+              +
+            </button>
+          </div>
+        <article class="info-drink">
+          <h4 class="drink-price">{{drink.price}} $</h4>
+          <h3 class="drink-name">{{drink.name}}</h3>
+          <p class="description">{{drink.notes}}</p>
+          <button class="add-drink" >ADD</button>
+        </article>
+      </article>
+    </li>
+  </ul>
+</section>

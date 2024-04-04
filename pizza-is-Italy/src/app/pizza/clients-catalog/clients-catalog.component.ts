@@ -8,27 +8,22 @@ import { Pizza } from 'src/app/types/pizza';
   templateUrl: './clients-catalog.component.html',
   styleUrls: ['./clients-catalog.component.scss']
 })
-export class ClientsCatalogComponent implements OnInit{
-clientsPizzas: Pizza[] = [];
-thereAreNoPizzas: boolean = false;
+export class ClientsCatalogComponent implements OnInit {
+  clientsPizzas: Pizza[] = [];
+  thereAreNoPizzas: boolean = false;
 
-  constructor(private apiService: ApiService, private userService: UserService){
+  constructor(private apiService: ApiService, private userService: UserService) {  }
 
-  }
-
-  get isLogged(): boolean{
+  get isLogged(): boolean {
     return this.userService.isLogged;
   }
 
   ngOnInit(): void {
-    this.apiService.getClientPizzas().subscribe((cPizzas)=>{
-      console.log(cPizzas);
-      this.clientsPizzas = cPizzas;
-      //this.clientsPizzas = []// ako iskame da nqma pizzi
-      if(this.clientsPizzas.length === 0){
+    this.apiService.getMenuPizza().subscribe((cPizzas) => {
+      this.clientsPizzas = cPizzas.filter((pizza) => pizza.type === 'client');
+      if (this.clientsPizzas.length === 0) {
         this.thereAreNoPizzas = true;
       }
-
     })
   }
 

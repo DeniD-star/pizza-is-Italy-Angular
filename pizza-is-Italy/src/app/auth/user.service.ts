@@ -12,13 +12,13 @@ export class UserService {
   usersUrl: string = environment.appUsersUrl;
 
   get isLogged(): boolean {
-    this.user = JSON.parse(localStorage.getItem(USER_KEY)!);
+    this.user = JSON.parse(sessionStorage.getItem(USER_KEY)!);
     if (this.user) { return true } else { return false };
   }
 
   constructor(private http: HttpClient) {
     try {
-      const lsUser = localStorage.getItem(USER_KEY) || '';
+      const lsUser = sessionStorage.getItem(USER_KEY) || '';
       this.user = JSON.parse(lsUser);
       console.log(this.user);
     } catch (error) {
@@ -35,13 +35,6 @@ export class UserService {
   }
 
   login(email: string, password: string) {
-    // this.user = {
-    //   email: 'john.berry@abv.bg',
-    //   password: '1234',
-    //   username: 'DeniD',
-    //   repeatPassword: ''
-    // };
-    // localStorage.setItem(this.USER_KEY, JSON.stringify(this.user));
     return this.http.post<User>(this.usersUrl + '/login', { email, password });
   }
   register(user: User) {
@@ -49,13 +42,13 @@ export class UserService {
       email: user.email,
       username: user.username,
       password: user.password,
-      rePassword: user.repeatPassword
+      rePassword: user.repPass
     });
   }
 
   logout(): void {
     this.user = undefined;
-    localStorage.removeItem(USER_KEY);
+    sessionStorage.removeItem(USER_KEY);
   }
 
 }

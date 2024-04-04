@@ -1,18 +1,27 @@
-<!-- <section class="desserts">
-  <h1 class="desserts-title">DESSERTS</h1>
-
-  <ul class="desserts-list">
-   {desserts.length> 0 && desserts.map((dessert) => (
-      <li key={dessert._id}>
-
-        <DessertItem
-        imageUrl={{dessert.imageUrl}}
-        name={{dessert.name}}
-        notes={{dessert.notes}}
-        price={{dessert.price}} -->
-        <!-- />
-      </li>
-   ))}
+<h1 class="desserts-title">DESSERTS</h1>
+<section class="desserts">
+  <ul class="desserts-list" *ngFor="let dessert of desserts">
+    <li>
+      <article class="dessert-article">
+        <article class="img-dessert">
+            <img src={{dessert.imageUrl}} alt="dessert-img" class="dessert-img"/>
+        </article>
+        <div class="btns-quantity">
+          <button class="decrease">
+            -
+          </button>
+          <h2 class="quantity-heading">1</h2>
+          <button class="increase">
+            +
+          </button>
+        </div>
+        <article class="info-dessert">
+            <h4 class="dessert-price">{{dessert.price}} $</h4>
+            <h3 class="dessert-name">{{dessert.name}}</h3>
+            <p class="description">{{dessert.notes}}</p>
+            <button class="add-dessert">ADD</button>
+        </article>
+      </article>
+    </li>
   </ul>
-</section>  -->
-
+</section>

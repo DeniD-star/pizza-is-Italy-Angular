@@ -45,11 +45,10 @@ export class RegisterComponent {
       username: this.form.get('username')?.value as string,
       email: this.form.get('email')?.value as string,
       password: password as string,
-      repeatPassword: rePassword as string
+      repPass: rePassword as string
     }
 
     this.userService.register(user).subscribe({
-      error: (error) => alert(error.error.message),
       complete: () => this.router.navigate(['/login'])
     });
 
