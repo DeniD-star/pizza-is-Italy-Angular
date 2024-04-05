@@ -1,25 +1,29 @@
 <section class="my-pizzas-profile">
   <h1 class="profile-heading">Here are pizzas created by you!</h1>
   <article class="section-article">
-    <ul class="my-pizzas-list">
-      <!-- {ownerPizzas.length > 0 ?
-      ownerPizzas.map((pizza) => ( -->
-        <li
-        key={pizza.id}>
-          <!-- <PizzaCard pizza={pizza} -->
-          />
-        </li>
-      <!-- )) -->
-    <!-- : -->
-    <p class="no-pizzas-my">You haven't created a pizza yet</p>
-  <!-- } -->
+    <ul class="my-pizzas-list" *ngFor="let pizza of userPizzas">
+      <li>
+        <article class="pizze-tradizionali margherita">
+          <article class="img">
+            <img
+              src={{pizza.imageUrl}}
+              alt="img-margherita"
+            />
+          </article>
+          <article class="info">
+              <h5 class="price">{{pizza.price}}$</h5>
+            <h3 class="pizza-name">{{pizza.name}}</h3>
+            <p class="description">{{pizza.ingredients}}</p>
+            <a routerLink="/details/{{pizza._id}}">Details</a>
+          </article>
+        </article>
+      </li>
     </ul>
+    <p class="no-pizzas-my" *ngIf="userPizzas.length === 0">You haven't created a pizza yet</p>
   </article>
-  <!-- {user.email && ( -->
-    <div class="add-btn-container">
-      <a to="/create" class="btn-add">
-        + Add Your Pizza
-      </a>
-    </div>
-  <!-- )} -->
+  <div class="add-btn-container">
+    <a to="/create" class="btn-add">
+      + Add Your Pizza
+    </a>
+  </div>
 </section>

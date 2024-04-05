@@ -7,15 +7,38 @@ export interface Pizza{
   ingredients: string,
   notes: string,
   price: number,
+  quantity?: number;
+  dateOrder?: number;
   canBeEdit?: boolean,
   _id?: string,
   _ownerId?: string,
   _createdOn?: number
 }
 
+export interface Drink extends Pizza {
+  singleQuantity: number,
+  added: boolean
+}
+
+export interface Dessert extends Pizza {
+  singleQuantity: number,
+  added: boolean
+}
+
 export interface Cart {
-  item: Pizza[];
+  _id: string;
+  _ownerId?: string;
+  dateOrder?: number;
+  item: Pizza;
+  itemId: string,
   intemId: string;
   quantity: number;
   userId: User;
+}
+
+export interface Order {
+  _ownerId: string
+  currentOrder: Cart[]
+  _createdOn: number
+  _id: string
 }

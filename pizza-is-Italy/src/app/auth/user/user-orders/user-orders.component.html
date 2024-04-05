@@ -1,16 +1,17 @@
 <section class="my-orders-profile">
   <h1 class="my-orders-heading">My Orders</h1>
-  <ul class="list-my-orders">
-    <!-- {userOrders.length > 0 &&
-    userOrders.map(order => {
-      console.log(order)
-      return order.currentOrder.map(item =><OrderItem  key={item._id} item={item}/>)
-
-    })} -->
+  <ul class="list-my-orders" *ngFor="let orders of confirmOrders">
+    <ng-container *ngFor="let order of orders.currentOrder">
+      <article class="my-order-article">
+        <img src={{order.item.imageUrl}} alt="" class="my-img-order" />
+        <p class="my-order-quantity">{{order.quantity}}</p>
+        <p class="my-order-name">{{order.item.name}}</p>
+        <p class="my-order-date">Purchased on: {{order.dateOrder | date : 'dd/MM/YYYY HH:mm' }}</p>
+        <a routerLink="/details/{{order.item._id}}">Buy again</a>
+      </article>
+    </ng-container>
   </ul>
-  <!-- {userOrders.length === 0 && ( -->
-    <article class="empty-order-list">
-      <p>Your order list is empty!</p>
-    </article>
-  <!-- )} -->
+  <article class="empty-order-list" *ngIf="confirmOrders.length === 0">
+    <p>Your order list is empty!</p>
+  </article>
 </section>

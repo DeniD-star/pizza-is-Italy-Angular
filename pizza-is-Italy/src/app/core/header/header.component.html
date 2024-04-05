@@ -21,7 +21,6 @@
             <i class="fa-solid fa-right-to-bracket"></i>
             <a routerLink="/register" class="nav-link"> Register </a>
           </li>
-
           <li class="list-item">
             <i class="fa-solid fa-right-to-bracket"></i>
             <a routerLink="/login" class="nav-link"> Login </a>
@@ -34,12 +33,6 @@
             <a routerLink="/clientsPizzas" class="nav-link"> Clients catalog </a>
           </li>
           <li class="list-item">
-            <i class="fa-solid fa-cart-arrow-down"></i>
-            <a routerLink="/cart" class="nav-link">
-              Cart
-            </a>
-          </li>
-          <li class="list-item">
             <i class="fa-solid fa-user"></i>
             <a routerLink="/profile" class="nav-link">
               {{ username }}
@@ -50,6 +43,13 @@
             <a (click)="logout()" class="nav-link"> Logout </a>
           </li>
         </ng-container>
+
+        <li class="list-item">
+          <i class="fa-solid fa-cart-arrow-down"></i>
+          <a routerLink="/cart" class="nav-link">
+            Cart
+          </a>
+        </li>
 
       </section>
     </ul>

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
 import { Pizza } from './types/pizza';
-import { USER_KEY } from './shared/constants';//
+import { USER_KEY } from './shared/constants';
 import { User } from './types/user';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private http: HttpClient) { }
   private user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
   private options = {
-    headers: new HttpHeaders().set('X-Authorization', this.user?.accessToken!),//
+    headers: new HttpHeaders().set('X-Authorization', this.user?.accessToken!),
   };
 
   getWhitePizzas() {
@@ -35,15 +35,15 @@ export class ApiService {
     const { appUrl } = environment;
     return this.http.get<Pizza>(`${appUrl}/traditionalPizzas/${id}`);
   }
-  // getClientPizzas() {
-  //   const { appUrl } = environment;
-  //   return this.http.get<Pizza[]>(`${appUrl}/clientPizzas`);
-  // }
-  // getClientPizza(id: string) {
-  //   const { appUrl } = environment;
-  //   return this.http.get<Pizza>(`${appUrl}/clientPizzas/${id}`);
-  // }
-  getMenuPizza() {//for the clients pizzas
+  getClientPizzas() {
+    const { appUrl } = environment;
+    return this.http.get<Pizza[]>(`${appUrl}/clientPizzas`);
+  }
+  getClientPizza(id: string) {
+    const { appUrl } = environment;
+    return this.http.get<Pizza>(`${appUrl}/clientPizzas/${id}`);
+  }
+  getMenuPizza() {
     const { appUrl } = environment;
     return this.http.get<Pizza[]>(`${appUrl}/menu`);
   }

@@ -31,13 +31,13 @@
     </article>
     <article class="details-order">
       <h2 class="details-price-order">{{pizza?.price}}</h2>
-      <button class="details-btn-order" (click)="addToTheCartHandler()">
+      <button class="details-btn-order" (click)="addToTheCart()">
         ADD TO THE ORDER
       </button>
-      <!-- {isAdded && <p class="pizzaP">{pizza.name} added to the cart!</p>} -->
+      <p class="pizzaP" *ngIf="added">{{pizza?.name}} added to the cart!</p>
     </article>
 
-    <article class="details-btns-admin" *ngIf="pizza?.canBeEdit">
+    <article class="details-btns-admin" *ngIf="pizza?.canBeEdit && pizza?._ownerId">
       <a routerLink="/edit/{{pizza?._id}}" [state]="{pizza: pizza}" class="details-btn-edit">
         EDIT
       </a>

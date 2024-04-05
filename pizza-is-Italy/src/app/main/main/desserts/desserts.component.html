@@ -7,11 +7,11 @@
             <img src={{dessert.imageUrl}} alt="dessert-img" class="dessert-img"/>
         </article>
         <div class="btns-quantity">
-          <button class="decrease">
+          <button class="decrease" (click)="changeQuantity(false, dessert)">
             -
           </button>
-          <h2 class="quantity-heading">1</h2>
-          <button class="increase">
+          <h2 class="quantity-heading">{{dessert.singleQuantity}}</h2>
+          <button class="increase" (click)="changeQuantity(true, dessert)">
             +
           </button>
         </div>
@@ -19,7 +19,8 @@
             <h4 class="dessert-price">{{dessert.price}} $</h4>
             <h3 class="dessert-name">{{dessert.name}}</h3>
             <p class="description">{{dessert.notes}}</p>
-            <button class="add-dessert">ADD</button>
+            <button class="add-dessert" (click)="addToTheCart(dessert)">ADD</button>
+            <p class="dessertP" *ngIf="dessert.added">{{dessert.name}} added to the cart!</p>
         </article>
       </article>
     </li>

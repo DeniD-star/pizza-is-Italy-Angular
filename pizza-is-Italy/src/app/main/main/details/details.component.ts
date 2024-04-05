@@ -3,7 +3,10 @@ import { Component, OnInit, inject } from '@angular/core';
 
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
+import { CartService } from 'src/app/cart/cart.service';
+import { USER_KEY } from 'src/app/shared/constants';
 import { Pizza } from 'src/app/types/pizza';
+import { User } from 'src/app/types/user';
 
 @Component({
   selector: 'app-details',
@@ -17,19 +20,9 @@ export class DetailsComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   pizza: Pizza | undefined;
   quantity = 1;
+  added: boolean = false;
 
-
-  //   editPizzaSubmitHandler(pizza: NgForm): void{
-  //     if(pizza.invalid){
-  //       return;
-  //     }
-  //     console.log(pizza.value);
-
-  // }
-
-  constructor(private apiService: ApiService, private router: Router) {
-    // const pizzaId = this.route.snapshot.params['pizzaId'];
-  }
+  constructor(private apiService: ApiService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
@@ -40,8 +33,13 @@ export class DetailsComponent implements OnInit {
     });
   }
 
-  addToTheCartHandler(): void {
-
+  addToTheCart(): void {
+    var user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
+    if (this.pizza) {
+      this.cartService.addToCart(this.pizza._id as string, user._id as string, this.quantity, this.pizza).subscribe({
+        complete: () => this.added = true
+      })
+    }
   }
 
   changeQuantity(isAdd: boolean): void {
@@ -59,9 +57,7 @@ export class DetailsComponent implements OnInit {
 
     if (confirmation) {
       if (pizza?._id) {
-        this.apiService.deletePizza(pizza._id).subscribe({
-          complete: () => this.router.navigate(['/clientsPizzas'])
-        })
+        this.apiService.deletePizza(pizza._id).subscribe()
       }
     }
   }

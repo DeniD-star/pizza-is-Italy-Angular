@@ -4,4 +4,5 @@ export interface User {
   password: string;
   repPass: string;
   accessToken?: string;
+  _id?: string
 }

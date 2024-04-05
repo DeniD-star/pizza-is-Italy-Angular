@@ -4,26 +4,23 @@
     <li>
       <article class="drink-article drink">
         <article class="img-drink">
-          <img
-            src={{drink.imageUrl}}
-            alt="drink-img"
-            class="drink-dessert-img"
-          />
+          <img src={{drink.imageUrl}} alt="drink-img" class="drink-dessert-img" />
         </article>
         <div class="btns-quantity">
-            <button class="decrease">
-              -
-            </button>
-            <h2 class="quantity-heading">1</h2>
-            <button class="increase">
-              +
-            </button>
-          </div>
+          <button class="decrease" (click)="changeQuantity(false, drink)">
+            -
+          </button>
+          <h2 class="quantity-heading">{{drink.singleQuantity}}</h2>
+          <button class="increase" (click)="changeQuantity(true, drink)">
+            +
+          </button>
+        </div>
         <article class="info-drink">
           <h4 class="drink-price">{{drink.price}} $</h4>
           <h3 class="drink-name">{{drink.name}}</h3>
           <p class="description">{{drink.notes}}</p>
-          <button class="add-drink" >ADD</button>
+          <button class="add-drink" (click)="addToTheCart(drink)">ADD</button>
+          <p class="drinkP" *ngIf="drink.added">{{drink.name}} added to the cart!</p>
         </article>
       </article>
     </li>
