@@ -37,7 +37,7 @@
       <p class="pizzaP" *ngIf="added">{{pizza?.name}} added to the cart!</p>
     </article>
 
-    <article class="details-btns-admin" *ngIf="pizza?.canBeEdit && pizza?._ownerId">
+    <article class="details-btns-admin" *ngIf="pizza?.canBeEdit && pizza?._ownerId === user._id">
       <a routerLink="/edit/{{pizza?._id}}" [state]="{pizza: pizza}" class="details-btn-edit">
         EDIT
       </a>
@@ -45,8 +45,9 @@
         Delete
       </button>
     </article>
-
+    
   </article>
+  <app-comments *ngIf="pizza && pizza?.canBeEdit" [pizzaId]="pizza._id" [userName]="user.username"></app-comments>
 </section>
 
 <!-- <Comments/>

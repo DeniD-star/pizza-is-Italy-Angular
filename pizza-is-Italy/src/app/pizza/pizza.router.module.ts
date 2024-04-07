@@ -27,7 +27,6 @@ const routes: Routes = [
         pathMatch: 'full',
         component: MainComponent
       },
-
       {
         path: 'traditional',
         component: TraditionalPizzasComponent,
@@ -37,15 +36,6 @@ const routes: Routes = [
         path: 'white',
         component: WhitePizzasComponent,
       }
-      /* {
-        path: 'create',
-        component: CreateComponent,
-        canActivate: [AuthActivate]
-      }, */
-      // {
-      //   path: ':pizzaId',
-      //   component: CardPizzaComponent
-      // }
     ],
   },
   {
@@ -69,11 +59,6 @@ const routes: Routes = [
     path: 'white',
     component: WhitePizzasComponent
   },
-
-  //  {
-  // path: 'details/:pizzaId',
-  //  component: DetailsComponent,
-  //  },
   {
     path: 'details/:pizzaId',
     component: DetailsComponent,

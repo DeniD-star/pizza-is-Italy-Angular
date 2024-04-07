@@ -10,10 +10,7 @@ import { USER_KEY } from '../shared/constants';
   providedIn: 'root'
 })
 export class CartService {
-  private user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
-  private options = {
-    headers: new HttpHeaders().set('X-Authorization', this.user?.accessToken!),
-  };
+
   private appUrl = environment.appUrl;
   constructor(private http: HttpClient) { }
 
@@ -22,18 +19,23 @@ export class CartService {
   }
 
   addToCart(itemId: string, userId: string, quantity: number, item: Pizza) {
-    return this.http.post<Cart[]>(`${this.appUrl}/cart`, {itemId, userId, quantity, item}, this.options);
+    return this.http.post<Cart[]>(`${this.appUrl}/cart`, {itemId, userId, quantity, item}, this.getToken());
   }
 
   deleteToCart(pizzaId: string) {
-    return this.http.delete<void>(`${this.appUrl}/cart/${pizzaId}`, this.options);
+    return this.http.delete<void>(`${this.appUrl}/cart/${pizzaId}`, this.getToken());
   }
 
   confirmOrder(currentOrder: Cart[]) {
-    return this.http.post<Order>(`${this.appUrl}/orders`, {currentOrder}, this.options);
+    return this.http.post<Order>(`${this.appUrl}/orders`, {currentOrder}, this.getToken());
   }
 
   getConfirmedOrder() {
     return this.http.get<Order[]>(`${this.appUrl}/orders`,);
+  }
+
+  private getToken(): { headers: HttpHeaders; } {
+    let user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
+    return { headers: new HttpHeaders().set('X-Authorization', user?.accessToken!) };
   }
 }

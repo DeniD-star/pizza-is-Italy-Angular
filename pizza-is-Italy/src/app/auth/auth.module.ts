@@ -8,6 +8,7 @@ import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 import { UserPizzasComponent } from './user/user-pizzas/user-pizzas.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { SharedModule } from '../shared/shared.module';
     UserComponent,
     UserOrdersComponent,
     UserPizzasComponent,
+    ProfileComponent
   ],
   imports: [CommonModule, UserRoutingModule, FormsModule, SharedModule, ReactiveFormsModule],
   exports: [
@@ -24,6 +26,7 @@ import { SharedModule } from '../shared/shared.module';
     UserComponent,
     UserOrdersComponent,
     UserPizzasComponent,
+    ProfileComponent
   ],
 })
 export class AuthModule {}

@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.development';
-import { Pizza } from './types/pizza';
+import { Comments, Pizza } from './types/pizza';
 import { USER_KEY } from './shared/constants';
 import { User } from './types/user';
 
@@ -10,10 +10,6 @@ import { User } from './types/user';
 })
 export class ApiService {
   constructor(private http: HttpClient) { }
-  private user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
-  private options = {
-    headers: new HttpHeaders().set('X-Authorization', this.user?.accessToken!),
-  };
 
   getWhitePizzas() {
     // return this.http.get(environment.appUrl)//po tozi na4in si fetchvam dannite
@@ -51,16 +47,31 @@ export class ApiService {
     const { appUrl } = environment;
     return this.http.get<Pizza>(`${appUrl}/menu/${id}`);
   }
+  getPizzaComments(pizzaId: string) {
+    const relations = encodeURIComponent(`user=_ownerId:users`)
+    const search = encodeURIComponent(`pizzaId="${pizzaId}"`)
+    const { appUrl } = environment;
+    return this.http.get<Comments[]>(`${appUrl}/comments?where=${search}&load=${relations}`)
+  }
+  createComment(pizzaId: string, text: string, author: string) {
+    const { appUrl } = environment;
+    return this.http.post(`${appUrl}/comments`, { pizzaId, text, author}, this.getToken())
+  }
   createPizza(pizza: Pizza) {
     const { appUrl } = environment;
-    return this.http.post(`${appUrl}/menu`, pizza, this.options);
+    return this.http.post(`${appUrl}/menu`, pizza, this.getToken());
   }
   editPizza(pizza: Pizza) {
     const { appUrl } = environment;
-    return this.http.put(`${appUrl}/menu/${pizza._id}`, pizza, this.options);
+    return this.http.put(`${appUrl}/menu/${pizza._id}`, pizza, this.getToken());
   }
   deletePizza(pizzaId: string) {
     const { appUrl } = environment;
-    return this.http.delete<Pizza>(`${appUrl}/menu/${pizzaId}`, this.options);
+    return this.http.delete<Pizza>(`${appUrl}/menu/${pizzaId}`, this.getToken());
+  }
+
+  private getToken(): { headers: HttpHeaders; } {
+    let user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
+    return { headers: new HttpHeaders().set('X-Authorization', user?.accessToken!) };
   }
 }

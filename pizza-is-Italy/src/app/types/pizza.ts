@@ -42,3 +42,10 @@ export interface Order {
   _createdOn: number
   _id: string
 }
+
+export interface Comments {
+  author: string;
+  pizzaId: string;
+  text: string;
+  user: User;
+}

@@ -21,10 +21,12 @@ export class DetailsComponent implements OnInit {
   pizza: Pizza | undefined;
   quantity = 1;
   added: boolean = false;
+  user!: User;
 
-  constructor(private apiService: ApiService, private cartService: CartService) { }
+  constructor(private apiService: ApiService, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(sessionStorage.getItem(USER_KEY)!);
     this.route.params.subscribe((params: Params) => {
       const pizzaId = params['pizzaId'];
       this.apiService.getOnePizza(pizzaId).subscribe(
@@ -34,9 +36,12 @@ export class DetailsComponent implements OnInit {
   }
 
   addToTheCart(): void {
-    var user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
+    if (!this.user) {
+      this.router.navigate(['/login']);
+      return;
+    }
     if (this.pizza) {
-      this.cartService.addToCart(this.pizza._id as string, user._id as string, this.quantity, this.pizza).subscribe({
+      this.cartService.addToCart(this.pizza._id as string, this.user._id as string, this.quantity, this.pizza).subscribe({
         complete: () => this.added = true
       })
     }
@@ -57,7 +62,9 @@ export class DetailsComponent implements OnInit {
 
     if (confirmation) {
       if (pizza?._id) {
-        this.apiService.deletePizza(pizza._id).subscribe()
+        this.apiService.deletePizza(pizza._id).subscribe({
+          complete: () => this.router.navigate(['clientsPizzas'])
+        })
       }
     }
   }

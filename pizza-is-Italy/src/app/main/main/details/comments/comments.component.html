@@ -1,0 +1,21 @@
+<article class="about-comments">
+    <article class="comments">
+        <h3 class="heading-comments">Comments:</h3>
+        <ul class="list-comments" *ngFor="let comment of comments">
+            <li class="comment-item">
+                <h3 class="username-name">
+                    {{comment.author}}
+                    <i class="fa-solid fa-check"></i>
+                </h3>
+                <p class="comment-content">{{comment.text}}</p>
+            </li>
+        </ul>
+    </article>
+    <article class="comments-add-mew">
+        <h3 class="heading-comments">New Comment</h3>
+        <form class="form" (ngSubmit)="saveComment()">
+            <textarea name="comment" placeholder="Comment......" [(ngModel)]="comment"></textarea>
+            <input class="btn-add-comment" type="submit" value="Add" />
+        </form>
+    </article>
+</article>

@@ -13,6 +13,7 @@ export class EditComponent {
   public pizzaEdit!: Pizza;
   public form!: FormGroup;
   constructor(private apiService: ApiService, private router: Router) {
+    // arriva dallo state l'oggetto pizza e viene salvato nella variabile pizzaEdit
     this.pizzaEdit = this.router.getCurrentNavigation()?.extras?.state?.['pizza'] as Pizza;
     console.log(this.pizzaEdit)
   }

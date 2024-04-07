@@ -9,8 +9,9 @@
 
 .my-pizzas-list {
   list-style: none;
-  display: flex;
+  display: inline-block;
   flex-wrap: wrap;
+
 }
 
 .no-pizzas-my {

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/api.service';
 import { CartService } from 'src/app/cart/cart.service';
 import { USER_KEY } from 'src/app/shared/constants';
@@ -13,7 +14,7 @@ import { User } from 'src/app/types/user';
 export class DessertsComponent implements OnInit {
   public desserts: Dessert[] = [];
 
-  constructor(private apiService: ApiService, private cartService: CartService){}
+  constructor(private apiService: ApiService, private cartService: CartService, private router: Router) { }
 
   ngOnInit(): void {
     this.apiService.getMenuPizza().subscribe((cDesserts) => {
@@ -34,6 +35,10 @@ export class DessertsComponent implements OnInit {
 
   addToTheCart(dessert: Dessert): void {
     var user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
+    if (!user) {
+      this.router.navigate(['/login']);
+      return;
+    }
     this.cartService.addToCart(dessert._id as string, user._id as string, dessert.singleQuantity, dessert).subscribe({
       complete: () => dessert.added = true
     })

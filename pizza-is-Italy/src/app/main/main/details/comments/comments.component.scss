@@ -1,0 +1,82 @@
+.comments {
+    background-color: gray;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+.heading-comments {
+    color: rgb(230, 96, 96);
+    font-size: 32px;
+}
+
+.comment-item {
+    color: white;
+}
+
+.list-comments {
+    list-style: none;
+}
+
+.comments-add-mew {
+    background-color: gray;
+    padding: 10px;
+    border-radius: 8px;
+}
+.comments-add-mew textarea {
+    width: 500px;
+    height: 100px;
+}
+.comments-add-mew .btn-add-comment {
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-size: 28px;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: rgb(230, 96, 96);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+.about-comments {
+    margin: 100px 400px;
+}
+
+.comment-item {
+    background-color: white;
+    color: black;
+    padding: 5px;
+    border-radius: 8px;
+    margin-bottom: 3px;
+    /* display: flex; 
+    justify-content: space-between; */
+}
+/* .comment-item h3, .comment-item p{
+    background-color: white;
+   color: black;
+    padding: 5px;
+    border-radius: 8px; 
+   
+  } */
+
+.comment-item h3 {
+    font-weight: bold;
+    margin-top: 0px;
+    margin-bottom: 2px;
+}
+.comment-item p {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.fa-check {
+    margin-left: 5px;
+    color: rgb(230, 96, 96);
+}
+
+.pizzaP {
+    font-weight: bold;
+    color: red;
+    margin-left: 10px;
+}

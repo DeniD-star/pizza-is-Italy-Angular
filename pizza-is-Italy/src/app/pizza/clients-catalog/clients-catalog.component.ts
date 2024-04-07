@@ -19,6 +19,7 @@ export class ClientsCatalogComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // chiama il servizio getMenuPizza e filtra solo per le pizze di tipo client
     this.apiService.getMenuPizza().subscribe((cPizzas) => {
       this.clientsPizzas = cPizzas.filter((pizza) => pizza.type === 'client');
       if (this.clientsPizzas.length === 0) {

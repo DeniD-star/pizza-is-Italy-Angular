@@ -19,7 +19,7 @@ export class CreateComponent {
     }
     console.log(form.value);
     const { name, imageUrl, ingredients, notes, price } = form.value;
-    const newPizza: Pizza = {
+    const newPizza: Pizza = { // crea un nuovo oggetto di tipo Pizza
       canBeEdit: true,
       name: name,
       imageUrl: imageUrl,
@@ -29,6 +29,7 @@ export class CreateComponent {
       type: 'client'
     }
     this.apiService.createPizza(newPizza).subscribe({
+      // al completamento della subscribe naviga in /clientsPizzas
       complete: () => this.router.navigate(['/clientsPizzas'])
     })
   }

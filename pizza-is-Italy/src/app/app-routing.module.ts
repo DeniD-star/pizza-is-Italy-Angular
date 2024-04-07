@@ -13,11 +13,11 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'user',
+    path: 'user', // lazy loading, carica il modulo Auth quando entra in una rotta dell'user
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'cart',
+    path: 'cart', // lazy loading, carica il modulo Cart quando entra in una rotta del cart
     loadChildren: () => import('./cart/cart.module').then(m => m.CartModule)
   }
 ];
