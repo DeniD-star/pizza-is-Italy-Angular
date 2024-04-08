@@ -2,18 +2,14 @@
 <section class="white-pizzas">
   <article *ngFor="let pizza of whitePizzas" class="pizze-bianche delicata">
     <article class="img">
-      <img
-        src={{pizza.imageUrl}}
-        alt="img-delicata"
-      />
+      <img src="{{ pizza.imageUrl }}" alt="img-delicata" />
     </article>
     <article class="info">
-        <h5 class="price">{{pizza.price}} $</h5>
-      <h3 class="pizza-name">{{pizza.name}}</h3>
-      <p class="description">{{pizza.ingredients}}</p>
-      <a routerLink="/details/{{pizza._id}}">Details</a>
+      <h5 class="price">{{ pizza.price }} $</h5>
+      <h3 class="pizza-name">{{ pizza.name }}</h3>
+      <p class="description">{{ pizza.ingredients }}</p>
+
+      <a routerLink="/details/{{ pizza._id }}">Details</a>
     </article>
   </article>
-
-
 </section>

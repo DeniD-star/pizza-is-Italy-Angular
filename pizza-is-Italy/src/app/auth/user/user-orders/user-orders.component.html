@@ -7,7 +7,7 @@
         <p class="my-order-quantity">{{order.quantity}}</p>
         <p class="my-order-name">{{order.item.name}}</p>
         <p class="my-order-date">Purchased on: {{order.dateOrder | date : 'dd/MM/YYYY HH:mm' }}</p>
-        <a routerLink="/details/{{order.item._id}}">Buy again</a>
+        <a routerLink="../../catalog/details/{{order.item._id}}">Buy again</a>
       </article>
     </ng-container>
   </ul>

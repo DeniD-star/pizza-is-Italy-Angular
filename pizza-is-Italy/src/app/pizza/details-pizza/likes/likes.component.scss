@@ -1,0 +1,51 @@
+.details-btn-edit {
+    width: 130px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: rgb(230, 96, 96);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.likes-count {
+    font-weight: bold;
+    margin: 0px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.details-btns-admin {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    top: -20px;
+    margin-bottom: 0px;
+}
+.details-btns-admin p {
+    font-weight: bold;
+}
+.details-btn-edit,
+.details-btn-delete {
+    width: 130px;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 24px;
+    cursor: pointer;
+    border-color: transparent;
+    background-color: rgb(230, 96, 96);
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+}
+
+.details-btns-admin .details-btn-edit {
+    margin-right: 20px;
+}

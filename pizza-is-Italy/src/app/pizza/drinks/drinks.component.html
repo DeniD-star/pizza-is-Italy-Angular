@@ -16,7 +16,7 @@
           </button>
         </div>
         <article class="info-drink">
-          <h4 class="drink-price">{{drink.price}} $</h4>
+          <h4 class="drink-price">{{drink.price | number: '1.2'}} $</h4>
           <h3 class="drink-name">{{drink.name}}</h3>
           <p class="description">{{drink.notes}}</p>
           <button class="add-drink" (click)="addToTheCart(drink)">ADD</button>

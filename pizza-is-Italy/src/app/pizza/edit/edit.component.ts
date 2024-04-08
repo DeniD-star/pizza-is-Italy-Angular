@@ -36,7 +36,7 @@ export class EditComponent {
       _createdOn: this.pizzaEdit._createdOn
     }
     this.apiService.editPizza(editPizza).subscribe({
-      complete: () => this.router.navigate(['/clientsPizzas'])
+      complete: () => this.router.navigate(['catalog/clientsPizzas'])
     })
   }
 }

@@ -30,22 +30,24 @@
       </article>
     </article>
     <article class="details-order">
-      <h2 class="details-price-order">{{pizza?.price}}</h2>
+      <h2 class="details-price-order">{{pizza?.price | number: '1.2'}} $</h2>
       <button class="details-btn-order" (click)="addToTheCart()">
         ADD TO THE ORDER
       </button>
       <p class="pizzaP" *ngIf="added">{{pizza?.name}} added to the cart!</p>
     </article>
 
+    <app-likes *ngIf="pizza && pizza?.canBeEdit" [pizzaId]="pizza._id"></app-likes>
+
     <article class="details-btns-admin" *ngIf="pizza?.canBeEdit && pizza?._ownerId === user._id">
-      <a routerLink="/edit/{{pizza?._id}}" [state]="{pizza: pizza}" class="details-btn-edit">
+      <a routerLink="../../edit/{{pizza?._id}}" [state]="{pizza: pizza}" class="details-btn-edit">
         EDIT
       </a>
       <button class="details-btn-delete" (click)="deletePizza(pizza)">
         Delete
       </button>
     </article>
-    
+
   </article>
   <app-comments *ngIf="pizza && pizza?.canBeEdit" [pizzaId]="pizza._id" [userName]="user.username"></app-comments>
 </section>

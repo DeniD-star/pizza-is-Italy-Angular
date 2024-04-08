@@ -5,16 +5,13 @@
       <li>
         <article class="pizze-tradizionali margherita">
           <article class="img">
-            <img
-              src={{pizza.imageUrl}}
-              alt="img-margherita"
-            />
+            <img src={{pizza.imageUrl}} alt="img-margherita" />
           </article>
           <article class="info">
-              <h5 class="price">{{pizza.price}}$</h5>
+            <h5 class="price">{{pizza.price | number: '1.2'}}$</h5>
             <h3 class="pizza-name">{{pizza.name}}</h3>
             <p class="description">{{pizza.ingredients}}</p>
-            <a routerLink="/details/{{pizza._id}}">Details</a>
+            <a routerLink="../../catalog/details/{{pizza._id}}">Details</a>
           </article>
         </article>
       </li>
@@ -22,7 +19,7 @@
     <p class="no-pizzas-my" *ngIf="userPizzas.length === 0">You haven't created a pizza yet</p>
   </article>
   <div class="add-btn-container">
-    <a to="/create" class="btn-add">
+    <a routerLink="../../catalog/create" class="btn-add">
       + Add Your Pizza
     </a>
   </div>

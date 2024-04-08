@@ -63,7 +63,7 @@ export class DetailsComponent implements OnInit {
     if (confirmation) {
       if (pizza?._id) {
         this.apiService.deletePizza(pizza._id).subscribe({
-          complete: () => this.router.navigate(['clientsPizzas'])
+          complete: () => this.router.navigate(['catalog/clientsPizzas'])
         })
       }
     }

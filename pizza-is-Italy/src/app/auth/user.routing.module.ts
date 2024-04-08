@@ -10,6 +10,16 @@ import { UserOrdersComponent } from './user/user-orders/user-orders.component';
 
 const routes: Routes = [
   {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: ''
+  },
+  {
+    path: '',
+    component: ProfileComponent,
+   canActivate: [AuthActivate ],
+  },
+  {
     path: 'login',
     component: LoginComponent,
     //  canActivate: [AuthActivate ]
@@ -20,17 +30,14 @@ const routes: Routes = [
     // canActivate: [AuthActivate ]
   },
   {
-    path: 'profile',
-    component: ProfileComponent,
-    //  canActivate: [AuthActivate ],
-  },
-  {
     path: 'user-pizzas',
-    component: UserPizzasComponent
+    component: UserPizzasComponent,
+    canActivate: [AuthActivate ],
   },
   {
     path: 'user-orders',
     component: UserOrdersComponent,
+    canActivate: [AuthActivate ],
   }
 ];
 

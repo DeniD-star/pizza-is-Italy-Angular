@@ -4,43 +4,26 @@ import { TraditionalPizzasComponent } from './traditional-pizzas/traditional-piz
 import { CreateComponent } from './create/create.component';
 import { AuthActivate } from '../core/guards/auth.activate';
 import { ClientsCatalogComponent } from './clients-catalog/clients-catalog.component';
-import { MainComponent } from '../main/main/main.component';
 import { WhitePizzasComponent } from './white-pizzas/white-pizzas.component';
-import { CardPizzaComponent } from './card-pizza/card-pizza.component';
-import { DetailsComponent } from '../main/main/details/details.component';
-import { EditComponent } from '../main/main/edit/edit.component';
-import { DrinksComponent } from '../main/main/drinks/drinks.component';
-import { DessertsComponent } from '../main/main/desserts/desserts.component';
-import { CatalogComponent } from '../main/main/catalog/catalog.component';
+import { EditComponent } from './edit/edit.component';
+import { DrinksComponent } from './drinks/drinks.component';
+import { CatalogComponent } from './catalog/catalog.component';
+import { DessertsComponent } from './desserts/desserts.component';
+import { DetailsComponent } from './details-pizza/details.component';
 
 const routes: Routes = [
   {
-    path: 'catalog',
+    path: '',
     component: CatalogComponent,
   },
   {
     path: 'traditional',
     component: TraditionalPizzasComponent,
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        component: MainComponent
-      },
-      {
-        path: 'traditional',
-        component: TraditionalPizzasComponent,
-
-      },
-      {
-        path: 'white',
-        component: WhitePizzasComponent,
-      }
-    ],
   },
   {
     path: 'clientsPizzas',
     component: ClientsCatalogComponent,
+    canActivate: [AuthActivate]
   },
   {
     path: 'create',
@@ -62,6 +45,7 @@ const routes: Routes = [
   {
     path: 'details/:pizzaId',
     component: DetailsComponent,
+    canActivate: [AuthActivate]
   },
   {
     path: 'edit/:pizzaId',

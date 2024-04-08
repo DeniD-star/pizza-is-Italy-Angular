@@ -1,6 +1,6 @@
 import { User } from "./user";
 
-export interface Pizza{
+export interface Pizza {
   name: string,
   type?: string,
   imageUrl: string,
@@ -48,4 +48,12 @@ export interface Comments {
   pizzaId: string;
   text: string;
   user: User;
+}
+
+export interface Likes {
+  author: string;
+  pizzaId: string;
+  _createdOn: number;
+  _id: string;
+  _ownerId: string;
 }

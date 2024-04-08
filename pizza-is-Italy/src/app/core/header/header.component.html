@@ -13,28 +13,28 @@
       <section class="user-navigation">
         <li class="list-item">
           <i class="fa-solid fa-newspaper"></i>
-          <a routerLink="/catalog" class="nav-link drop-down"> Our Menu </a>
+          <a routerLink="catalog" class="nav-link drop-down"> Our Menu </a>
         </li>
 
         <ng-container *ngIf="!isLoggedIn">
           <li class="list-item">
             <i class="fa-solid fa-right-to-bracket"></i>
-            <a routerLink="/register" class="nav-link"> Register </a>
+            <a routerLink="profile/register" class="nav-link"> Register </a>
           </li>
           <li class="list-item">
             <i class="fa-solid fa-right-to-bracket"></i>
-            <a routerLink="/login" class="nav-link"> Login </a>
+            <a routerLink="profile/login" class="nav-link"> Login </a>
           </li>
         </ng-container>
 
         <ng-container *ngIf="isLoggedIn">
           <li class="list-item">
             <i class="fa-solid fa-comments"></i>
-            <a routerLink="/clientsPizzas" class="nav-link"> Clients catalog </a>
+            <a routerLink="catalog/clientsPizzas" class="nav-link"> Clients catalog </a>
           </li>
           <li class="list-item">
             <i class="fa-solid fa-user"></i>
-            <a routerLink="/profile" class="nav-link">
+            <a routerLink="profile" class="nav-link">
               {{ username }}
             </a>
           </li>
@@ -46,7 +46,7 @@
 
         <li class="list-item">
           <i class="fa-solid fa-cart-arrow-down"></i>
-          <a routerLink="/cart" class="nav-link">
+          <a routerLink="cart" class="nav-link">
             Cart
           </a>
         </li>

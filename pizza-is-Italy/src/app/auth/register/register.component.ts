@@ -49,7 +49,7 @@ export class RegisterComponent {
     }
 
     this.userService.register(user).subscribe({
-      complete: () => this.router.navigate(['/login'])
+      complete: () => this.router.navigate(['profile/login'])
     });
 
   }

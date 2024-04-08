@@ -30,7 +30,7 @@ export class CreateComponent {
     }
     this.apiService.createPizza(newPizza).subscribe({
       // al completamento della subscribe naviga in /clientsPizzas
-      complete: () => this.router.navigate(['/clientsPizzas'])
+      complete: () => this.router.navigate(['catalog/clientsPizzas'])
     })
   }
 }

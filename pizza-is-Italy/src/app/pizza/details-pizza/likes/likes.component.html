@@ -1,0 +1,11 @@
+<article class="details-btns-admin">
+    <button *ngIf="like else enable" class="details-btn-edit" (click)="removeLike(like._id)">
+        Dislike
+    </button>
+    <ng-template #enable>
+        <button class="details-btn-edit" (click)="addLike()">
+            Like
+        </button>
+    </ng-template>
+    <p class="likes-count">{{likes.length}} likes</p>
+</article>

@@ -19,7 +19,13 @@ import { ProfileComponent } from './profile/profile.component';
     UserPizzasComponent,
     ProfileComponent
   ],
-  imports: [CommonModule, UserRoutingModule, FormsModule, SharedModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    UserRoutingModule,
+    FormsModule,
+    SharedModule,
+    ReactiveFormsModule
+  ],
   exports: [
     LoginComponent,
     RegisterComponent,
@@ -29,4 +35,4 @@ import { ProfileComponent } from './profile/profile.component';
     ProfileComponent
   ],
 })
-export class AuthModule {}
+export class AuthModule { }
