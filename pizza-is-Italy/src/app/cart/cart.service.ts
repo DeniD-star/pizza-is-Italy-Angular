@@ -15,22 +15,22 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   getCart() {
-    return this.http.get<Cart[]>(`${this.appUrl}/cart`);
+    return this.http.get<Cart[]>(`${this.appUrl}/cart`);//the cart
   }
 
-  addToCart(itemId: string, userId: string, quantity: number, item: Pizza) {
+  addToCart(itemId: string, userId: string, quantity: number, item: Pizza) {//when i add an item to the cart
     return this.http.post<Cart[]>(`${this.appUrl}/cart`, {itemId, userId, quantity, item}, this.getToken());
   }
 
-  deleteToCart(pizzaId: string) {
+  deleteToCart(pizzaId: string) {//when i delete an item from the cart
     return this.http.delete<void>(`${this.appUrl}/cart/${pizzaId}`, this.getToken());
   }
 
-  confirmOrder(currentOrder: Cart[]) {
+  confirmOrder(currentOrder: Cart[]) {//confirming order
     return this.http.post<Order>(`${this.appUrl}/orders`, {currentOrder}, this.getToken());
   }
 
-  getConfirmedOrder() {
+  getConfirmedOrder() {//take all confirmed orders
     return this.http.get<Order[]>(`${this.appUrl}/orders`,);
   }
 

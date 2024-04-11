@@ -1,3 +1,5 @@
+<!-- Reactive Form assigned from [formGroup], formGroupName, formControlName -->
+
 <section id="register">
   <article class="register-form">
     <h2>Create your account:</h2>
@@ -9,7 +11,6 @@
         name="email"
         placeholder="Email"
         formControlName="email"
-        [value]="userDetails?.email"
       />
 
       <ng-container *ngIf="form.get('email')?.touched">
@@ -31,7 +32,6 @@
         name="username"
         placeholder="Enter your Username"
         formControlName="username"
-        [value]="userDetails?.username"
       />
       <ng-container *ngIf="form.get('username')?.touched">
         <p class="error" *ngIf="form.get('username')?.errors?.['required']">
@@ -104,3 +104,20 @@
     </form>
   </article>
 </section>
+
+<!-- Define the form model: You start by defining the form model in your Angular component using the FormGroup and FormControl
+  classes provided by Angular. This allows you to create a nested structure of form controls that represent each input field in your form.
+
+Bind the form controls to HTML elements: You then bind the form controls to the HTML input elements in your template using the
+formControlName directive. This allows Angular to synchronize the values of the form controls with the input fields in real time.
+
+Handle form submission: You can handle form submission using the submit event handler in your template, or by subscribing to the
+ valueChanges observable of the form group to react to changes in the form values.
+
+Perform validation: You can perform validation on the form controls to ensure that the input data meets your requirements. Angular
+ provides built-in validators such as required, minLength, maxLength, pattern, and custom validators that you can use to validate the
+ form controls.
+
+Display error messages: You can display error messages for the form controls that fail validation by checking the validity and error properties of the form controls in your template, and showing error messages accordingly.
+
+Overall, reactive forms in Angular provide a more programmatic and flexible way of managing forms compared to template-driven forms, making them a preferred choice for complex forms and applications. -->

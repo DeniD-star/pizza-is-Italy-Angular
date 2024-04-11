@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/auth/user.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-catalog',
@@ -8,10 +7,6 @@ import { UserService } from 'src/app/auth/user.service';
 })
 export class CatalogComponent {
 
-  constructor(private userService: UserService) { }
-
-  get isLoggedIn(): boolean {
-    return this.userService.isLogged;
-  }
+  constructor() { }
 
 }

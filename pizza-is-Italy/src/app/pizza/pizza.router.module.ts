@@ -45,7 +45,7 @@ const routes: Routes = [
   {
     path: 'details/:pizzaId',
     component: DetailsComponent,
-    canActivate: [AuthActivate]
+    /* canActivate: [AuthActivate] */
   },
   {
     path: 'edit/:pizzaId',

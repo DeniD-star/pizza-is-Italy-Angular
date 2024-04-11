@@ -13,6 +13,7 @@ import { EditComponent } from './edit/edit.component';
 import { DetailsComponent } from './details-pizza/details.component';
 import { CommentsComponent } from './details-pizza/comments/comments.component';
 import { LikesComponent } from './details-pizza/likes/likes.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { LikesComponent } from './details-pizza/likes/likes.component';
   imports: [
     CommonModule,
     PizzaRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: []
 })

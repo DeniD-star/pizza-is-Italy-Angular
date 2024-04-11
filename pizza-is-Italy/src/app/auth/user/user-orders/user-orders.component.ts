@@ -17,8 +17,8 @@ export class UserOrdersComponent implements OnInit{
   ngOnInit(): void {
     this.cartService.getConfirmedOrder().subscribe(
       (orders) => {
-        let user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
-        this.confirmOrders = orders.filter(order => order._ownerId === user._id)
+        let user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);//take the user from the session storage
+        this.confirmOrders = orders.filter(order => order._ownerId === user._id)//take the orders made by the user
       }
     )
   }

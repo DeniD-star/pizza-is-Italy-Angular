@@ -1,3 +1,5 @@
+<!-- Template Driven Form, assigned by #form, #inputEmail, #inputPassword -->
+
 <section id="login">
   <article class="login-form">
     <h2>Login:</h2>
@@ -16,6 +18,10 @@
         required
         [appEmail]="appEmailDomains"
       />
+      <!-- ngModel(what is doing in this case) is a directive in Angular that is used for two-way data binding between form inputs and properties
+        in the component class. It creates a FormControl instance for the input element and binds it to a property in the
+        component class. This allows you to access the value of the input element in your component class and update it as needed.
+        It is commonly used in forms to track changes and validate input. -->
 
       <ng-container *ngIf="inputEmail.touched">
         <p class="error" *ngIf="inputEmail.errors?.['required']">Email is required!</p>
@@ -44,7 +50,7 @@
         <p class="error" *ngIf="inputPassword.errors?.['minlength']">Password must be at least {{inputPassword.errors?.['minlength']['requiredLength']}} characters!</p>
       </ng-container>
 
-      <button type="submit" class="login-btn" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? '' : 'yellow'}">
+      <button type="submit" class="login-btn" [disabled]="form.invalid" [style]="{backgroundColor: form.invalid ? 'grey' : ''}">
         LOGIN
       </button>
 
@@ -61,3 +67,22 @@
 
 </section>
 
+<!-- Template driven forms in Angular work by using the ngModel directive to bind form inputs to variables in the component class.
+   This allows you to easily work with form data in your component code.To create a template driven form in Angular,
+    you start by adding the ngForm directive to a <form> tag in your template. Inside this form, you can use ngModel to bind form inputs
+      to variables in your component class. For example, you can bind an input field to a variable named 'name' like this:
+
+<input type="text" name="name" [(ngModel)]="name">
+
+When the form is submitted, Angular automatically updates the 'name' variable in your component class with the value entered in the
+ input field.
+
+You can also add validation to your form by using Angular's built-in validators. For example, you can require a field to be filled out by
+adding the 'required' attribute to an input field:
+
+<input type="text" name="name" [(ngModel)]="name" required>
+
+You can then check the validity of the form and its controls using properties such as 'ngForm.valid' and 'name.valid' in your component
+class.
+
+Overall, template driven forms in Angular provide a simple and intuitive way to work with form data in your application. -->

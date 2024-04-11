@@ -12,7 +12,6 @@ import { User } from 'src/app/types/user';
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss'],
-
 })
 export class DetailsComponent implements OnInit {
   isEditMode: boolean = false;
@@ -23,48 +22,62 @@ export class DetailsComponent implements OnInit {
   added: boolean = false;
   user!: User;
 
-  constructor(private apiService: ApiService, private cartService: CartService, private router: Router) { }
+  constructor(
+    private apiService: ApiService,
+    private cartService: CartService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.user = JSON.parse(sessionStorage.getItem(USER_KEY)!);
     this.route.params.subscribe((params: Params) => {
       const pizzaId = params['pizzaId'];
-      this.apiService.getOnePizza(pizzaId).subscribe(
-        (pizza: Pizza) => this.pizza = pizza
-      );
+      this.apiService.getOnePizza(pizzaId).subscribe((pizza: Pizza) => {
+        this.pizza = pizza;
+        if (pizza.type === 'client' && !this.user) {
+          this.router.navigate(['profile/login']);
+        }
+      });
     });
   }
 
   addToTheCart(): void {
     if (!this.user) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['profile/login']);
       return;
     }
     if (this.pizza) {
-      this.cartService.addToCart(this.pizza._id as string, this.user._id as string, this.quantity, this.pizza).subscribe({
-        complete: () => this.added = true
-      })
+      this.cartService
+        .addToCart(
+          this.pizza._id as string,
+          this.user._id as string,
+          this.quantity,
+          this.pizza
+        )
+        .subscribe({
+          complete: () => (this.added = true),
+        });
     }
   }
 
   changeQuantity(isAdd: boolean): void {
     if (isAdd && this.quantity < 10) {
-      this.quantity++
+      this.quantity++;
     } else if (!isAdd && this.quantity > 1) {
-      this.quantity--
+      this.quantity--;
     }
   }
 
   deletePizza(pizza: Pizza | undefined): void {
     const confirmation = window.confirm(
-      "Are you sure you want to delete this pizza?"
+      'Are you sure you want to delete this pizza?'
     );
 
     if (confirmation) {
       if (pizza?._id) {
         this.apiService.deletePizza(pizza._id).subscribe({
-          complete: () => this.router.navigate(['catalog/clientsPizzas'])
-        })
+          complete: () => this.router.navigate(['catalog/clientsPizzas']),
+        });
       }
     }
   }

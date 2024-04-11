@@ -12,12 +12,11 @@ import { User } from 'src/app/types/user';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  userDetails: User | undefined;
 
   form = this.fb.group({
     email: [
       '',
-      [Validators.required, appEmailValidator(DEFAULT_EMAIL_DOMAINS)],
+      [Validators.required, appEmailValidator(DEFAULT_EMAIL_DOMAINS)],//with custom validator
     ],
     username: ['', [Validators.required, Validators.minLength(5)]],
     passGroup: this.fb.group(
@@ -37,18 +36,18 @@ export class RegisterComponent {
     private router: Router
   ) { }
 
-  register(): void {
+  register(): void {//define register
     if (this.form.invalid) { return; }
 
     const { passGroup: { password, rePassword } = {} } = this.form.value;
-    const user: User = {
+    const user: User = {//define the user
       username: this.form.get('username')?.value as string,
       email: this.form.get('email')?.value as string,
       password: password as string,
       repPass: rePassword as string
     }
 
-    this.userService.register(user).subscribe({
+    this.userService.register(user).subscribe({// and then i call user service register
       complete: () => this.router.navigate(['profile/login'])
     });
 

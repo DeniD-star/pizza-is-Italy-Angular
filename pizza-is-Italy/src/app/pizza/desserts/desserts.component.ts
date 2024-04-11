@@ -36,7 +36,7 @@ export class DessertsComponent implements OnInit {
   addToTheCart(dessert: Dessert): void {
     var user: User = JSON.parse(sessionStorage.getItem(USER_KEY)!);
     if (!user) {
-      this.router.navigate(['/login']);
+      this.router.navigate(['profile/login']);
       return;
     }
     this.cartService.addToCart(dessert._id as string, user._id as string, dessert.singleQuantity, dessert).subscribe({
