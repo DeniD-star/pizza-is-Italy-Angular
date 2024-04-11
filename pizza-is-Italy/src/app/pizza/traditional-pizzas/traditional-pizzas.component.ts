@@ -14,7 +14,7 @@ export class TraditionalPizzasComponent implements OnInit {
   ngOnInit(): void {
     this.apiService.getTraditionalPizzas().subscribe((tPizzas) => {
       console.log(tPizzas[0]);
-      this.traditionalPizzas = tPizzas;
+      this.traditionalPizzas = tPizzas.filter((pizza) => pizza.type === 'traditional');
     });
   }
 }
