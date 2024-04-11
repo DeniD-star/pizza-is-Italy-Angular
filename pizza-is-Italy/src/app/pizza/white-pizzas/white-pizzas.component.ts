@@ -14,9 +14,9 @@ whitePizzas: Pizza[] = [];
   }
 
   ngOnInit(): void {
-    this.apiService.getWhitePizzas().subscribe((wPizzas)=>{
+    this.apiService.getMenuPizza().subscribe((wPizzas)=>{
       console.log(wPizzas);
-      this.whitePizzas = wPizzas;
+      this.whitePizzas = wPizzas.filter((pizza) => pizza.type === 'white');
 
     })
   }
